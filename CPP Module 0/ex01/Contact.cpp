@@ -20,7 +20,6 @@ void	Contact::setFirstName()
 	std::getline(std::cin, firstName);
 	if (firstName.empty())
 		goto label;
-	std::cout << "\033[3;35mThe name... " << firstName << "... how strange..." << std::endl;
 	this->firstName = firstName;
 }
 
@@ -30,12 +29,12 @@ void	Contact::setLastName()
 	std::cout << "\033[2J\033[1;1H" << std::endl;
 	phonebook.displayInterface();
 	std::cout << "\033[999;1H";
+	std::cout << "\033[3;35mThe name... " << firstName << "... how strange..." << std::endl;
 	label:
 	std::cout << "\033[3;35mWhat is the Last Name of this Contact of yours : \033[1;37m";
 	std::getline(std::cin, lastName);
 	if (lastName.empty())
 		goto label;
-	std::cout << "\033[3;35mHmm... Sounds like a royal bloodline..." << std::endl;
 	this->lastName = lastName;
 }
 
@@ -45,12 +44,12 @@ void	Contact::setNickname()
 	std::cout << "\033[2J\033[1;1H" << std::endl;
 	phonebook.displayInterface();
 	std::cout << "\033[999;1H";
+	std::cout << "\033[3;35mHmm... Sounds like a royal bloodline..." << std::endl;
 	label:
 	std::cout << "\033[3;35mYou can't identify everyone just by their name... Tell me who is " << this->firstName << " for you and you only? What's " << this->firstName << "'s Nickname? : \033[1;37m";
 	std::getline(std::cin, nickname);
 	if (nickname.empty())
 		goto label;
-	std::cout << "\033[3;35mA choice of wise..." << std::endl;
 	this->nickname = nickname;
 }
 
@@ -60,6 +59,7 @@ void	Contact::setPhoneNumber()
 	std::cout << "\033[2J\033[1;1H" << std::endl;
 	phonebook.displayInterface();
 	std::cout << "\033[999;1H";
+	std::cout << "\033[3;35mA choice of wise..." << std::endl;
 	label:
 	std::cout << "\033[3;35mWhat's your contacts Phone Number? : \033[1;37m";
 	std::getline(std::cin, phoneNumber);
@@ -67,7 +67,6 @@ void	Contact::setPhoneNumber()
 		std::cout << "\033[3;35mDon't try to fool me,\033[3;31mḠ̷͕̣̲͋̀͐̋̌͝i̵̛̬̘͚̦͕̋̋̉̑͆̊̍̇͊͘͝v̸̆̎̓̒͂̑ė̵̹̎̒̈́̄̓̋ ̸̅̋͛́̿̑̋m̶̛̆͑͌̍̈́͐ȅ̴̛̟͛͂̓̈́̉̀̕ ̴̡͕͔͙̯̗̙́̾̄͝t̵̡̧̖͖̜͕͖́̀h̷̪͕̼̥̱̪͕̻̫̖̀͋̊̈́̏̏̅̔͜e̷̥̭̟̩̥͖͔̓̅͌̉̊͜ ̵̨̡̡̹̞͉̮͓̳̥̹͛̈͌͆̓̈́̈̑̌̕ͅņ̶̛̖̩̪̲̮̩̓͂̾̄̄̈̑̾̓̕͝͝͠ư̵̛̄̽̂̐̈́̑͋͘m̷̡̢̟̳͖̙͂͌̇̓̓̈́̈̈̾̓̎͘̚͜b̶̨̹̟̰̔̔̓̈́͒̈́͗̓̐͌͝͝͠͝ę̴̘̘̲̫̠̈́̃̐̏͋̈́͑̓͜͝r̷̢̜̘̝̓͛͑͋s̸̢̛̩̣͋͌͐͌͌̊̇̿̔̐̍͝!!!" << std::endl;
 		goto label;
 	}
-	std::cout << "\033[3;35mWell done darling, you are almost there!" << std::endl;
 	this->phoneNumber = phoneNumber; 
 }
 
@@ -77,6 +76,7 @@ void	Contact::setDarkestSecret()
 	std::cout << "\033[2J\033[1;1H" << std::endl;
 	phonebook.displayInterface();
 	std::cout << "\033[999;1H";
+	std::cout << "\033[3;35mWell done darling, you are almost there!" << std::endl;
 	label:
 	std::cout << "\033[1;35mWell, we are almost done... You only know someone as much as you know their darkness... Tell me what's your Contact's Darkest Secret? : \033[1;37m";
 	std::getline(std::cin, darkestSecret);

@@ -17,7 +17,7 @@ void Harl::error(void){
 }
 
 void Harl::complain(std::string level){
-	t_func funcs[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};	
+	pToFunc funcs[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};	
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	for (int i = 0; i < 4; i++)
 	{

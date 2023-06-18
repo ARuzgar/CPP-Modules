@@ -27,7 +27,7 @@ Fixed::Fixed(const float floatToFix)
 {
 	std::cout << "Float constructor called" << std::endl;
 	float scaleFactor = pow(2, bits);
-    float scaledValue = value * scaleFactor;
+    float scaledValue = floatToFix * scaleFactor;
     int roundedValue = static_cast<int>(roundf(scaledValue));
     this->value = roundedValue << bits;
 }
@@ -39,9 +39,21 @@ Fixed & Fixed::operator=(const Fixed &number)
 	return (*this);
 }
 
+float Fixed::toFloat(void) const
+{
+	float scaleFactor = 1.0f / pow(2, bits);
+    return static_cast<float>(this->value) * scaleFactor;
+}
+
+int Fixed::toInt(void) const
+{
+	return this->value >> bits;
+}
+
 std::ostream &operator<<(std::ostream &output, const Fixed &fixed)
 {
-	
+	output << fixed.toFloat();
+	return (output);
 }
 
 int	Fixed::getRawBits( void ) const

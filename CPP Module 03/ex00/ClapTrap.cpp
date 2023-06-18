@@ -61,7 +61,7 @@ void	ClapTrap::attack(const std::string& target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->hitPoints = 0)
+	if (this->hitPoints == 0)
 		std::cout << "Stop, he is already destroyed!" << std::endl;
 	else{
 		if (amount >= hitPoints){
@@ -90,6 +90,10 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	}
 	else if (this->energyPoints == 0)
 		std::cout << "<ClapTrap> " << this->name << " needs an energy boost before trying to repair itself." << std::endl;
+	else if (this->hitPoints == this->maxHP){
+		this->energyPoints -= 1;
+		std::cout << "<ClapTrap> " << this->name << " already at the full capacity. What a waste of energy..." << std::endl;
+	}
 }
 
 std::string	ClapTrap::getName(void){

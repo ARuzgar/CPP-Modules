@@ -49,8 +49,10 @@ ClapTrap &	ClapTrap::operator=(ClapTrap const &clapTrap)
 
 void	ClapTrap::attack(const std::string& target)
 {
-	if (this->energyPoints > 0 && this->hitPoints > 0)
+	if (this->energyPoints > 0 && this->hitPoints > 0){
 		std::cout << "<ClapTrap> " << this->name << " attacks " <<  target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
+		this->energyPoints -= 1;
+	}
 	else if (this->hitPoints == 0)
 		std::cout << "<ClapTrap> " << this->name << "needs to be repaired before trying to attack." << std::endl;
 	else if (this->energyPoints == 0)
@@ -81,9 +83,10 @@ void	ClapTrap::beRepaired(unsigned int amount)
 			this->hitPoints = this->maxHP;
 			std::cout << "<ClapTrap> " << this->name << " is replenished like a new!" << std::endl;
 		}
-		else
+		else{
 			this->hitPoints += amount;
 			std::cout << "<ClapTrap> " << this->name << " got new parts and repaired " << amount << " points." << std::endl;
+		}
 	}
 	else if (this->energyPoints == 0)
 		std::cout << "<ClapTrap> " << this->name << " needs an energy boost before trying to repair itself." << std::endl;

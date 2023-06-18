@@ -10,6 +10,7 @@ class ClapTrap
 
 	std::string name;
 	int			hitPoints;
+	int			maxHP;
 	int			energyPoints;
 	int			attackDamage;
 

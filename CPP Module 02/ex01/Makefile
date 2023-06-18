@@ -1,4 +1,4 @@
-NAME = Harl
+NAME = Fixed
 
 OBJ_DIR = ./trash/
 

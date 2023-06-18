@@ -29,7 +29,7 @@ Fixed::Fixed(const float floatToFix)
 	float scaleFactor = pow(2, bits);
     float scaledValue = floatToFix * scaleFactor;
     int roundedValue = static_cast<int>(roundf(scaledValue));
-    this->value = roundedValue << bits;
+    this->value = roundedValue;
 }
 
 Fixed & Fixed::operator=(const Fixed &number)

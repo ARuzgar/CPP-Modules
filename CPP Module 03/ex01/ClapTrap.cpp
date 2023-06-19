@@ -1,44 +1,39 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void)
-{
+ClapTrap::ClapTrap(void){
 	static int i;
-	std::stringstream ss;
+	std::stringstream clappy;
 	std::string temp;
-	ss << i;
-	ss >> temp;
-	name = std::string("ClapTrap " + temp);
+	clappy << i;
+	clappy >> temp;
+	name = std::string("CL4P-TP " + temp);
 	hitPoints = 10;
 	maxHP = 10;
 	energyPoints = 10;
 	attackDamage = 0;
-	std::cout << "<ClapTrap> " << name << " is created." << std::endl;
+	std::cout << "<ClapTrap> " << name << " is assembled." << std::endl;
 	i++;
 }
 
-ClapTrap::ClapTrap(std::string name)
-{
-	this->name = name;
+ClapTrap::ClapTrap(std::string name){
+	this->name = "CL4P-TP " + name;
 	hitPoints = 10;
 	maxHP = 10;
 	energyPoints = 10;
 	attackDamage = 0;
-	std::cout << "<ClapTrap> " << this->name << " is created." << std::endl;
+	std::cout << "<ClapTrap> " << this->name << " is assembled." << std::endl;
 }
 
-ClapTrap::ClapTrap(ClapTrap const &copy)
-{
-	std::cout << "Clap Trap is Clonned." << std::endl;
+ClapTrap::ClapTrap(ClapTrap const &copy){
+	std::cout << "<ClapTrap>" << this->name << " is Clonned." << std::endl;
 	*this = copy;
 }
 
-ClapTrap::~ClapTrap(void)
-{
+ClapTrap::~ClapTrap(void){
 	std::cout << this->name << " is destroyed." << std::endl;
 }
 
-ClapTrap &	ClapTrap::operator=(ClapTrap const &clapTrap)
-{
+ClapTrap &	ClapTrap::operator=(ClapTrap const &clapTrap){
 	std::cout << "<ClapTrap> " << this->name << " stole " << clapTrap.name << "'s identity!" << std::endl;
 	this->name = clapTrap.name;
 	this->hitPoints = clapTrap.hitPoints;
@@ -47,8 +42,7 @@ ClapTrap &	ClapTrap::operator=(ClapTrap const &clapTrap)
 	return (*this);
 }
 
-void	ClapTrap::attack(const std::string& target)
-{
+void	ClapTrap::attack(const std::string& target){
 	if (this->energyPoints > 0 && this->hitPoints > 0){
 		std::cout << "<ClapTrap> " << this->name << " attacks " <<  target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
 		this->energyPoints -= 1;
@@ -59,8 +53,7 @@ void	ClapTrap::attack(const std::string& target)
 		std::cout << "<ClapTrap> " << this->name << "needs an energy boost before trying to attack." << std::endl;
 }
 
-void	ClapTrap::takeDamage(unsigned int amount)
-{
+void	ClapTrap::takeDamage(unsigned int amount){
 	if (this->hitPoints == 0)
 		std::cout << "Stop, he is already destroyed!" << std::endl;
 	else{
@@ -75,8 +68,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	}
 }
 
-void	ClapTrap::beRepaired(unsigned int amount)
-{
+void	ClapTrap::beRepaired(unsigned int amount){
 	if (this->energyPoints > 0 && this->hitPoints < this->maxHP){
 		this->energyPoints -= 1;
 		if (amount >= (this->maxHP - this->hitPoints)){

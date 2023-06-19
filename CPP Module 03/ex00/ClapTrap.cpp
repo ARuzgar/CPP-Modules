@@ -3,32 +3,32 @@
 ClapTrap::ClapTrap(void)
 {
 	static int i;
-	std::stringstream ss;
+	std::stringstream clappy;
 	std::string temp;
-	ss << i;
-	ss >> temp;
-	name = std::string("ClapTrap " + temp);
+	clappy << i;
+	clappy >> temp;
+	name = std::string("CL4P-TP " + temp);
 	hitPoints = 10;
 	maxHP = 10;
 	energyPoints = 10;
 	attackDamage = 0;
-	std::cout << "<ClapTrap> " << name << " is created." << std::endl;
+	std::cout << "<ClapTrap> " << name << " is constructed." << std::endl;
 	i++;
 }
 
 ClapTrap::ClapTrap(std::string name)
 {
-	this->name = name;
+	this->name = "CL4P-TP " + name;
 	hitPoints = 10;
 	maxHP = 10;
 	energyPoints = 10;
 	attackDamage = 0;
-	std::cout << "<ClapTrap> " << this->name << " is created." << std::endl;
+	std::cout << "<ClapTrap> " << this->name << " is constructed." << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &copy)
 {
-	std::cout << "Clap Trap is Clonned." << std::endl;
+	std::cout << "ClapTrap>" << this->name << " is Clonned." << std::endl;
 	*this = copy;
 }
 

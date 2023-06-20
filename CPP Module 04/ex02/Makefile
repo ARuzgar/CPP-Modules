@@ -1,4 +1,4 @@
-NAME = CatDog
+NAME = AbstractCatDogA
 
 OBJ_DIR = ./trash/
 

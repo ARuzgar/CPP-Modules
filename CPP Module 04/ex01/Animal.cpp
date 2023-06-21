@@ -14,7 +14,7 @@ Animal::Animal(Animal const &copy)
 
 Animal::~Animal(void)
 {
-	std::cout << type << " died." << std::endl;
+	std::cout <<"Animal died." << std::endl;
 }
 
 Animal &	Animal::operator=(Animal const &animal)

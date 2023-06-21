@@ -29,7 +29,7 @@ fclean: clean
 
 git: fclean
 	git add .
-	git commit -m "auto commit"
+	git commit -m "make git commit"
 	git push
 
 re: fclean all

@@ -9,8 +9,8 @@ AMateria::AMateria(std::string const & type){
 	this->type = type;
 }
 
-AMateria::AMateria(AMateria const & src){
-	*this = src;
+AMateria::AMateria(AMateria const & copy){
+	*this = copy;
 }
 
 AMateria::~AMateria(){

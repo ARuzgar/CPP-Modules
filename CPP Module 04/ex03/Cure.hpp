@@ -2,7 +2,7 @@
 # define CURE_HPP
 
 # include <iostream>
-#include "AMateria.hpp"
+# include "AMateria.hpp"
 
 class Cure : public AMateria
 {

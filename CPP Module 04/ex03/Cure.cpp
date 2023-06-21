@@ -1,15 +1,16 @@
 #include "Cure.hpp"
 
 Cure::Cure(void) : AMateria("cure"){
-	
+	//std::cout << "Cure Materia Created."
 }
 
 Cure::Cure(Cure const & src) : AMateria("cure"){
 	*this = src;
+	//std::cout << "Cure Materia copied."
 }
 
 Cure::~Cure(){
-	
+	//std::cout << "Cure Materia destroyed."
 }
 
 Cure &	Cure::operator=(const Cure &other){
@@ -19,6 +20,7 @@ Cure &	Cure::operator=(const Cure &other){
 
 Cure*	Cure::clone() const{
 	return (new Cure(*this));
+	//std::cout << "Cure Materia Clonned."
 }
 
 void	Cure::use(ICharacter& target){

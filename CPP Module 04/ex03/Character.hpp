@@ -6,9 +6,9 @@
 
 class Character : public ICharacter{
 private:
-
 	std::string name;
 	AMateria *slots[4];
+	void	*unequiped;
 
 public:
 	Character(std::string const & name);

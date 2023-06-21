@@ -17,8 +17,12 @@ Character::Character(Character const &copy)
 Character &	Character::operator=(Character const &other)
 {
 	this->name = other.name;
-	for(int i = 0; i < 4; i++)
+	for(int i = 0; i < 4; i++){
+		if (this->slots[i]){
+			delete this->slots[i];
+		}
 		this->slots[i] = other.slots[i];
+	}
     std::cout << "Character " << this->name << " is cloned." << std::endl;
 	return *this;
 }
@@ -47,7 +51,11 @@ std::string const & Character::getName() const{
 
 void	Character::unequip(int idx)
 {
-	
+	if (this->slots[idx]){
+		this->unequiped = this->slots[idx];
+		std::cout << this->getName() << " unequiped " << this->slots[idx]->getType() << std::endl;
+		this->slots[idx] = NULL;
+	}
 }
 
 void	Character::use(int idx, ICharacter& target)

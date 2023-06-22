@@ -62,7 +62,7 @@ void	ClapTrap::attack(const std::string& target)
 void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->hitPoints == 0)
-		std::cout << "Stop, he is already destroyed!" << std::endl;
+		std::cout << "<ClapTrap> " << "Stop, " << this->name << " is already destroyed!" << std::endl;
 	else{
 		if (amount >= hitPoints){
 			this->hitPoints = 0;

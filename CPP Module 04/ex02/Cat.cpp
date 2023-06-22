@@ -13,6 +13,10 @@ Cat::~Cat(void)
 	std::cout << type << " died." << std::endl;
 }
 
+Cat::Cat(const Cat &copy){
+	*this = copy;
+}
+
 Cat &	Cat::operator=(Cat const &cat)
 {
 	this->type = cat.type;

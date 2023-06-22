@@ -7,13 +7,17 @@ Dog::Dog()
 	std::cout << "a " << type <<" is born." << std::endl;
 }
 
+Dog::Dog(const Dog &copy){
+	*this = copy;
+}
+
 Dog::~Dog(void)
 {
-	delete brain;
+	delete this->brain;
 	std::cout << type << " died." << std::endl;
 }
 
-Dog &	Dog::operator=(Dog const &dog)
+Dog &	Dog::operator=(Dog const & dog)
 {
 	this->type = dog.type;
 	this->brain = new Brain;

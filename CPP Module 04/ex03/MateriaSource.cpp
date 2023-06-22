@@ -22,6 +22,7 @@ MateriaSource&	MateriaSource::operator=( MateriaSource const & other){
 		}
 		this->slots[i] = other.slots[i];
 	}
+	return *this;
 }
 
 AMateria*	MateriaSource::createMateria( std::string const & type ){

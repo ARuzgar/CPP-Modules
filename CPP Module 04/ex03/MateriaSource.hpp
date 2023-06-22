@@ -2,7 +2,10 @@
 # define MATERIASOURCE_HPP
 
 # include <iostream>
-#include "IMateriaSource.hpp"
+# include "IMateriaSource.hpp"
+# include "AMateria.hpp"
+
+
 
 class MateriaSource : public IMateriaSource{
 private:

@@ -5,7 +5,7 @@ Character::Character(std::string const & name)
 	this->name = name;
 	for(int i = 0; i < 4; i++)
 			this->slots[i] = NULL;
-	std::cout << name << "Has been born." << std::endl;
+	std::cout << name << " has been born." << std::endl;
 }
 
 Character::Character(Character const &copy)
@@ -32,7 +32,7 @@ Character::~Character(){
 		if(this->slots[i])
 			delete this->slots[i];
 	}
-	std::cout << this->name << "has died." << std::endl;
+	std::cout << this->name << " has died." << std::endl;
 }
 
 void	Character::equip(AMateria* m){
@@ -62,6 +62,6 @@ void	Character::use(int idx, ICharacter& target)
 {
 	if(this->slots[idx]){
 		this->slots[idx]->use(target);
-		std::cout << this->name << " is used " << this->slots[idx]->getType() << " on" << target.getName() << std::endl;
+		std::cout << this->name << " is used " << this->slots[idx]->getType() << " on " << target.getName() << std::endl;
 	}
 }

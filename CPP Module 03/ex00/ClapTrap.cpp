@@ -12,7 +12,7 @@ ClapTrap::ClapTrap(void)
 	maxHP = 10;
 	energyPoints = 10;
 	attackDamage = 0;
-	std::cout << "<ClapTrap> " << name << " is constructed." << std::endl;
+	std::cout << "<ClapTrap> " << name << " is assembled." << std::endl;
 	i++;
 }
 
@@ -23,7 +23,7 @@ ClapTrap::ClapTrap(std::string name)
 	maxHP = 10;
 	energyPoints = 10;
 	attackDamage = 0;
-	std::cout << "<ClapTrap> " << this->name << " is constructed." << std::endl;
+	std::cout << "<ClapTrap> " << this->name << " is assembled." << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &copy)

@@ -1,8 +1,8 @@
-NAME = ClappyAndScavvy
+NAME = ClappyAndScavvyandFrappy
 
 OBJ_DIR = ./trash/
 
-SRCS = ClapTrap.cpp ScavTrap.cpp main.cpp
+SRCS = ClapTrap.cpp ScavTrap.cpp FragTrap.cpp main.cpp
 
 OBJS = $(addprefix $(OBJ_DIR), $(SRCS:.cpp=.o))
 

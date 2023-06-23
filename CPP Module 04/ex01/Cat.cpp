@@ -9,14 +9,20 @@ Cat::Cat(void)
 
 Cat::~Cat(void)
 {
-	delete brain;
 	std::cout << type << " died." << std::endl;
+	delete brain;
+}
+
+Cat::Cat(const Cat &other)
+{
+	std::cout << "Cat copy constructor called" << std::endl;
+	*this = other;
 }
 
 Cat &	Cat::operator=(Cat const &cat)
 {
 	this->type = cat.type;
-	this->brain = new Brain;
+	this->brain = new Brain(*cat.brain);
 	std::cout << "A" << cat.type << " is clonned." << std::endl;
 	return (*this);
 }

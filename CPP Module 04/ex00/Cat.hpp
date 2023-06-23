@@ -9,6 +9,9 @@ class Cat : public Animal
 {
 	public:
 		Cat(void);
+		Cat(Cat const &copy);
+		Cat &operator=(Cat const &other);
+		~Cat(void);
 		void makeSound()const;
 };
 

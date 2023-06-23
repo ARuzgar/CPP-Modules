@@ -16,9 +16,9 @@ int main( void )
     i->makeSound();
     meta->makeSound();
 
-    delete  meta;
     delete  j;
     delete  i;
+    delete  meta;
 
     std::cout << std::endl << "------------- Wrong Animal -------------" << std::endl;
 

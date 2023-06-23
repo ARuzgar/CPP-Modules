@@ -12,7 +12,6 @@ public:
     WrongAnimal();
     WrongAnimal(std::string type);
     ~WrongAnimal();
-
     WrongAnimal( const WrongAnimal& copy);
     WrongAnimal& operator=(const WrongAnimal& other);
 

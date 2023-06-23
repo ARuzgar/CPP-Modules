@@ -10,8 +10,12 @@ Character::Character(std::string const & name)
 
 Character::Character(Character const &copy)
 {
+	if(this->name != "")
+	    std::cout << "Character " << this->name << " is cloning " << copy.getName() << std::endl;
+	else
+	    std::cout << "Character " << copy.getName() << " is getting cloned." << std::endl;
+
 	*this = copy;
-    std::cout << "Character " << this->name << " is getting cloned." << std::endl;
 }
 
 Character &	Character::operator=(Character const &other)
@@ -21,7 +25,7 @@ Character &	Character::operator=(Character const &other)
 		if (this->slots[i]){
 			delete this->slots[i];
 		}
-		this->slots[i] = other.slots[i];
+		this->slots[i] = other.slots[i]->clone();
 	}
     std::cout << "Character " << this->name << " is cloned." << std::endl;
 	return *this;
@@ -61,7 +65,7 @@ void	Character::unequip(int idx)
 void	Character::use(int idx, ICharacter& target)
 {
 	if(this->slots[idx]){
-		this->slots[idx]->use(target);
 		std::cout << this->name << " is used " << this->slots[idx]->getType() << " on " << target.getName() << std::endl;
+		this->slots[idx]->use(target);
 	}
 }

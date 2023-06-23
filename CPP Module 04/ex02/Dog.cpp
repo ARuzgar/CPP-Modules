@@ -8,20 +8,21 @@ Dog::Dog()
 }
 
 Dog::Dog(const Dog &copy){
+	std::cout << "Dog copy constructor called" << std::endl;
 	*this = copy;
 }
 
 Dog::~Dog(void)
 {
-	delete this->brain;
 	std::cout << type << " died." << std::endl;
+	delete this->brain;
 }
 
 Dog &	Dog::operator=(Dog const & dog)
 {
 	this->type = dog.type;
 	this->brain = new Brain;
-	std::cout << "A" << dog.type << " is clonned." << std::endl;
+	std::cout << "A " << dog.type << " is clonned." << std::endl;
 	return (*this);
 }
 

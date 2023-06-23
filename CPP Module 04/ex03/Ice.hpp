@@ -12,9 +12,10 @@ class Ice : public AMateria
 	public:
 	Ice(void);
 	Ice(std::string const & type);
-	Ice(Ice const & src);
-	~Ice();
+	Ice(Ice const & copy);
 	Ice &operator=(const Ice &other);
+	~Ice();
+
 	std::string const & getType() const;
 	Ice* clone() const;
 	void use(ICharacter& target);

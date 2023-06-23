@@ -10,7 +10,7 @@ class Cat : public Animal
 	public:
 		Cat(void);
 		Cat(Cat const &copy);
-		Cat &operator=(Cat const &other);
+		Cat &operator=(Cat const &cat);
 		~Cat(void);
 		void makeSound()const;
 };

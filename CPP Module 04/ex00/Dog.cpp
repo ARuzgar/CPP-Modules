@@ -11,16 +11,16 @@ Dog::~Dog()
 	std::cout << "Dog destructor called" << std::endl;
 }
 
-Dog::Dog(const Dog &other)
+Dog::Dog(const Dog &copy)
 {
-	*this = other;
+	*this = copy;
 	std::cout << "Dog copy constructor called" << std::endl;
 }
 
-Dog &Dog::operator=(const Dog &other)
+Dog &Dog::operator=(const Dog &dog)
 {
-	this->type = other.type;
-	std::cout << "Dog assignation operator called" << std::endl;
+	this->type = dog.type;
+	std::cout << "A" << dog.type << " is clonned." << std::endl;
 	return (*this);
 
 }

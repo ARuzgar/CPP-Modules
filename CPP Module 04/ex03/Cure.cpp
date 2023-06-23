@@ -19,8 +19,8 @@ Cure &	Cure::operator=(const Cure &other){
 }
 
 Cure*	Cure::clone() const{
+	std::cout << "Cure Materia Clonned." << std::endl;
 	return (new Cure(*this));
-	//std::cout << "Cure Materia Clonned."
 }
 
 void	Cure::use(ICharacter& target){

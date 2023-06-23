@@ -13,10 +13,10 @@ private:
 
 public:
 	MateriaSource();
-	~MateriaSource();
 	MateriaSource( MateriaSource const & copy);
-
 	MateriaSource&  operator=( MateriaSource const & other);
+	~MateriaSource();
+
 	AMateria*       createMateria( std::string const & type );
 	void            learnMateria( AMateria* m);
 };

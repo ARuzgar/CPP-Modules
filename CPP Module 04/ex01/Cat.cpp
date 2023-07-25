@@ -1,33 +1,28 @@
 #include "Cat.hpp"
 
-Cat::Cat(void)
-{
+Cat::Cat(void){
 	this->type = "Cat";
 	this->brain = new Brain();
-	std::cout << "a " << type <<" is born." << std::endl;
+	std::cout << "A " << this->type <<" is born." << std::endl;
 }
 
-Cat::~Cat(void)
-{
-	std::cout << type << " died." << std::endl;
-	delete brain;
+Cat::Cat(const Cat &copy){
+	std::cout << "An " << copy.type << " is being clonned." << std::endl;	
+	*this = copy;
 }
 
-Cat::Cat(const Cat &other)
-{
-	std::cout << "Cat copy constructor called" << std::endl;
-	*this = other;
-}
-
-Cat &	Cat::operator=(Cat const &cat)
-{
-	this->type = cat.type;
-	this->brain = new Brain(*cat.brain);
-	std::cout << "A" << cat.type << " is clonned." << std::endl;
+Cat &	Cat::operator=(Cat const &otherCat){
+	this->type = otherCat.type;
+	this->brain = new Brain(*otherCat.brain);
+	std::cout << "A " << otherCat.type << " is clonned." << std::endl;
 	return (*this);
 }
 
-void Cat::makeSound() const
-{
+Cat::~Cat(void){
+	std::cout << this->type << " died..." << std::endl;
+	delete brain;
+}
+
+void Cat::makeSound() const{
 	std::cout << "Meow meow NIGGA!!!" << std::endl;
 }

@@ -4,7 +4,6 @@
 # include <iostream>
 # include "Animal.hpp"
 
-
 class Cat : public Animal
 {
 	private :
@@ -12,9 +11,10 @@ class Cat : public Animal
 
 	public:
 		Cat();
+		Cat(const Cat &copy);
+		Cat &operator=(const Cat &otherCat);
 		~Cat();
-		Cat(const Cat &other);
-		Cat &operator=(const Cat &other);
+
 		void makeSound() const;
 };
 

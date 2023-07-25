@@ -12,7 +12,7 @@ class Animal
 	public:
 		Animal(void);
 		Animal(Animal const &copy);
-		Animal &operator=(Animal const &rhs);
+		Animal &operator=(Animal const &otherAnimal);
 		virtual ~Animal(void);
 
 		virtual void makeSound() const;

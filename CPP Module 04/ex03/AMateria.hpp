@@ -6,6 +6,7 @@
 
 class ICharacter;
 
+//Abstract Materia
 class AMateria
 {
 protected:
@@ -15,7 +16,7 @@ public:
 	AMateria(void);
 	AMateria(std::string const & type);
 	AMateria(AMateria const & copy);
-	virtual AMateria &operator=(const AMateria &other);
+	virtual AMateria &operator=(const AMateria &otherAMateria);
 	virtual ~AMateria();
 
 	std::string const & getType() const;

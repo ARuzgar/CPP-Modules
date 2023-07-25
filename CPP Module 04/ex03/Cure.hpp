@@ -13,7 +13,7 @@ class Cure : public AMateria
 	Cure(void);
 	Cure(std::string const & type);
 	Cure(Cure const & copy);
-	Cure &operator=(const Cure &other);
+	Cure &operator=(const Cure &otherCure);
 	~Cure();
 
 	std::string const & getType() const;

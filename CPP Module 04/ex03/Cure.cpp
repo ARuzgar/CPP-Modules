@@ -1,28 +1,34 @@
 #include "Cure.hpp"
 
+//Constructor
 Cure::Cure(void) : AMateria("cure"){
 	//std::cout << "Cure Materia Created."
 }
 
-Cure::Cure(Cure const & src) : AMateria("cure"){
-	*this = src;
+//Copy Constructor a.k.a. Function Overload
+Cure::Cure(Cure const & copy) : AMateria("cure"){
+	*this = copy;
 	//std::cout << "Cure Materia copied."
 }
 
+//Operator Overload
+Cure &	Cure::operator=(const Cure & otherCure){
+    this->type = otherCure.type;
+    return *this;
+}
+
+//Destructor
 Cure::~Cure(){
 	//std::cout << "Cure Materia destroyed."
 }
 
-Cure &	Cure::operator=(const Cure &other){
-    this->type = other.type;
-    return *this;
-}
-
+//Clone Method for deep copying at Character's or MateriaSources Operator Overload
 Cure*	Cure::clone() const{
 	std::cout << "Cure Materia Clonned." << std::endl;
 	return (new Cure(*this));
 }
 
+//For using Cure on target X
 void	Cure::use(ICharacter& target){
 	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

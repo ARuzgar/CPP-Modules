@@ -9,12 +9,12 @@
 
 class MateriaSource : public IMateriaSource{
 private:
-	AMateria*       slots[4];
+	AMateria       *slots[4];
 
 public:
 	MateriaSource();
 	MateriaSource( MateriaSource const & copy);
-	MateriaSource&  operator=( MateriaSource const & other);
+	MateriaSource&  operator=( MateriaSource const & otherMateriaSource);
 	~MateriaSource();
 
 	AMateria*       createMateria( std::string const & type );

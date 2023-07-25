@@ -13,7 +13,7 @@ class Ice : public AMateria
 	Ice(void);
 	Ice(std::string const & type);
 	Ice(Ice const & copy);
-	Ice &operator=(const Ice &other);
+	Ice &operator=(const Ice &otherIce);
 	~Ice();
 
 	std::string const & getType() const;

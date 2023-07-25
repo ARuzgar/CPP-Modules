@@ -22,8 +22,8 @@ int main( void )
 
     std::cout << std::endl << "------------- Wrong Animal -------------" << std::endl;
 
-    const WrongAnimal *wrong = new WrongAnimal();
-    const WrongAnimal *wrongCat = new WrongCat();
+    const WrongAnimal *wrong = new WrongCat();
+    const WrongCat *wrongCat = new WrongCat();
 
     std::cout << "Wrong Type: " << wrong->getType() << " " << std::endl;
     std::cout << "WrongCat Type: " << wrongCat->getType() << " " << std::endl;

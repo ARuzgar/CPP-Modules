@@ -1,30 +1,25 @@
 #include "Cat.hpp"
 
-Cat::Cat(void)
-{
+Cat::Cat(void){
 	this->type = "Cat";
-	std::cout << "a " << type <<" is born." << std::endl;
+	std::cout << "A " << type <<" is born." << std::endl;
 }
 
-Cat::~Cat()
-{
-	std::cout << "Cat destructor called" << std::endl;
-}
-
-Cat::Cat(const Cat &copy)
-{
+Cat::Cat(const Cat &copy){
+	std::cout << "A" << copy.type << " is being clonned." << std::endl;
 	*this = copy;
-	std::cout << "Cat copy constructor called" << std::endl;
 }
 
-Cat &Cat::operator=(const Cat &cat)
-{
-	this->type = cat.type;
-	std::cout << "A" << cat.type << " is clonned." << std::endl;
+Cat &Cat::operator=(const Cat &otherCat){
+	this->type = otherCat.type;
+	std::cout << "A" << otherCat.type << " is clonned." << std::endl;
 	return (*this);
 }
 
-void Cat::makeSound() const
-{
+Cat::~Cat(){
+	std::cout << this->type << " died..." << std::endl;
+}
+
+void Cat::makeSound() const{
 	std::cout << "Meow meow NIGGA!!!" << std::endl;
 }

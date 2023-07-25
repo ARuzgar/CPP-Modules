@@ -7,8 +7,8 @@ Ice::Ice(void) : AMateria("ice"){
 
 //Copy Constructor a.k.a. Function Overload
 Ice::Ice(Ice const & copy) : AMateria("ice"){
-	*this = copy;
 	//std::cout << "Ice Materia copied."
+	*this = copy;
 }
 
 //Operator Overload

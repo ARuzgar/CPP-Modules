@@ -7,8 +7,8 @@ Cure::Cure(void) : AMateria("cure"){
 
 //Copy Constructor a.k.a. Function Overload
 Cure::Cure(Cure const & copy) : AMateria("cure"){
-	*this = copy;
 	//std::cout << "Cure Materia copied."
+	*this = copy;
 }
 
 //Operator Overload

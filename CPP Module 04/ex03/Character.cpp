@@ -51,6 +51,14 @@ void	Character::equip(AMateria* m){
 			std::cout << "Materia " << m->getType() << " is equiped by " << this->name << std::endl;
 			break;
 		}
+		else if(i == 4){
+			for(int j = 0; j < 2147483646; j++){
+				if (!this->leftToTheGround[j]){
+					this->leftToTheGround[j] = m;
+				}
+			}
+			std::cout << "Character's slots are full and the Materia left to the ground" << std::endl;
+		}
 	}
 }
 
@@ -63,7 +71,11 @@ std::string const & Character::getName() const{
 void	Character::unequip(int idx)
 {
 	if (this->slots[idx]){
-		this->unequiped = this->slots[idx];
+		for(int j = 0; j < 2147483646; j++){
+			if (!this->leftToTheGround[j]){
+				this->leftToTheGround[j] = this->slots[idx];
+			}
+		}
 		std::cout << this->getName() << " unequiped " << this->slots[idx]->getType() << std::endl;
 		this->slots[idx] = NULL;
 	}

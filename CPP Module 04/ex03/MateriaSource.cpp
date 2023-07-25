@@ -46,9 +46,19 @@ AMateria*	MateriaSource::createMateria( std::string const & type ){
 //Since its an Magical Entity that can learn and "Create"(clone) new Materia's that it already has its "Learn" instead of "Equip".
 void	MateriaSource::learnMateria( AMateria* m){
 	for (int i = 0; i < 4; i++)
+	{
         if (!this->slots[i]){
             this->slots[i] = m;
 			std::cout << "Materia " << m->getType() << " has been learned by MateriaSource" << std::endl;
             break;
         }
+		else if(i == 4){
+			for(int j = 0; j < 2147483646; j++){
+				if (!this->leftToTheGround[j]){
+					this->leftToTheGround[j] = m;
+				}
+			}
+			std::cout << "MateriaSource's slots are full and the Materia left to the ground" << std::endl;
+		}
+	}
 }

@@ -14,7 +14,7 @@ class Character : public ICharacter
 	private:
 		std::string name;
 		AMateria *slots[4];
-		void	*unequiped;
+		void	*leftToTheGround[2147483646];
 
 	public:
 		Character(std::string const & name);

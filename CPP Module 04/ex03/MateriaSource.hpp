@@ -10,7 +10,7 @@
 class MateriaSource : public IMateriaSource{
 private:
 	AMateria       *slots[4];
-
+	void	*leftToTheGround[2147483646];
 public:
 	MateriaSource();
 	MateriaSource( MateriaSource const & copy);

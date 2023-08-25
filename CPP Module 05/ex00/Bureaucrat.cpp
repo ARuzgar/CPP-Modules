@@ -6,9 +6,13 @@ Bureaucrat::Bureaucrat(void)
 	this->grade = 150;
 }
 
-Bureaucrat::Bureaucrat(std::string name, unsigned int grade)
+Bureaucrat::Bureaucrat(const std::string &name, int grade)
 {
 	this->name = name;
+	if (grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
 	this->grade = grade;
 }
 
@@ -24,39 +28,55 @@ Bureaucrat::~Bureaucrat(void)
 
 Bureaucrat &	Bureaucrat::operator=(Bureaucrat const &otherBureaucrat)
 {
-	this->name = otherBureaucrat.name;
-	this->grade = otherBureaucrat.grade;
+	if (this != &otherBureaucrat){
+		this->name = otherBureaucrat.name;
+		this->grade = otherBureaucrat.grade;
+	}
 	return (*this);
 }
 
-std::ostream &operator<<(std::ostream &output, Bureaucrat &bboy)
+void Bureaucrat::incrementGrade()
 {
-
-	output << bboy.getName() << " bureaucrat grade " << bboy.getGrade() << std::endl;
-	return (output);
+	if (this->grade == 1)
+		throw Bureaucrat::GradeTooHighException();
+	this->grade--;
 }
 
-void	Bureaucrat::gradeTooHighException()
+void Bureaucrat::decrementGrade()
 {
-	throw "highException";
+	if (this->grade == 150)
+		throw Bureaucrat::GradeTooLowException();
+	this->grade++;
 }
 
-void	Bureaucrat::gradeTooLowException()
-{
-	throw "lowException";
-}
-
-std::string	Bureaucrat::getName()
+std::string	Bureaucrat::getName() const
 {
 	return (this->name);
 }
 
-int	Bureaucrat::getGrade()
+int	Bureaucrat::getGrade() const
 {
 	if (grade > 150)
-		gradeTooLowException;
+		Bureaucrat::GradeTooLowException();
 	else if (grade < 1)
-		gradeTooHighException;
+		Bureaucrat::GradeTooLowException();
 	else
 		return (this->grade);
+}
+
+const char *Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return ("Grade is too high.");
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("Grade is too low.");
+}
+
+std::ostream &operator<<(std::ostream &output, const Bureaucrat &bboy)
+{
+
+	output << bboy.getName() << " bureaucrat grade " << bboy.getGrade() << std::endl;
+	return (output);
 }

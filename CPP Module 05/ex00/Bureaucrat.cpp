@@ -23,6 +23,7 @@ Bureaucrat::~Bureaucrat(void){}
 Bureaucrat &	Bureaucrat::operator=(Bureaucrat const &otherBureaucrat){
 	this->name = otherBureaucrat.name;
 	this->grade = otherBureaucrat.grade;
+	return *this;
 }
 
 void	Bureaucrat::incrementGrade(){

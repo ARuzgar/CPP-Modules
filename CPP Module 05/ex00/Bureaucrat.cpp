@@ -2,11 +2,15 @@
 
 Bureaucrat::Bureaucrat(void){
 	this->name = "john doe";
-	this->grade = 150
+	this->grade = 150;
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade){
 	this->name = name;
+	if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else if (grade < 1)
+		throw Bureaucrat::GradeTooHighException();
 	this->grade = grade;
 }
 

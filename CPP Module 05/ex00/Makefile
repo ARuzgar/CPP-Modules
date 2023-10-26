@@ -2,7 +2,7 @@ NAME = bureaucrat
 
 OBJ_DIR = ./trash/
 
-SRCS = main.cpp
+SRCS = main.cpp Bureaucrat.cpp
 
 OBJS = $(addprefix $(OBJ_DIR), $(SRCS:.cpp=.o))
 

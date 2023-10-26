@@ -16,20 +16,10 @@ class Bureaucrat
 		Bureaucrat &operator=(Bureaucrat const &otherBureaucrat);
 		~Bureaucrat(void);
 
-		void		incrementGrade(void);
-		void		decrementGrade(void);
-		int			getGrade(void) const;
-		std::string getName(void) const;
-
-		class GradeTooHighException : public std::exception{
-			public :
-				virtual const char *what() const throw();
-		};
-		class GradeTooLowException : public std::exception{
-			public :
-				virtual const char *what() const throw();
-		};
+		void		incrementGrade();
+		void		decrementGrade();
+		int			getGrade() const;
+		std::string getName() const;
 };
 
-	std::ostream &operator<<(std::ostream &output, Bureaucrat &bboy);
 #endif

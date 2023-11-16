@@ -27,10 +27,12 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-git: fclean
-	git add .
-	git commit -m "auto commit"
-	git push
+git:
+	@make fclean
+	@git add .
+	@read -p "Enter commit message: " message; \
+	git commit -m "$$message"
+	@git push
 
 re: fclean all
 

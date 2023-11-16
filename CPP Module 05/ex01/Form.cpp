@@ -1,4 +1,3 @@
-# include "Bureaucrat.hpp"
 # include "Form.hpp"
 
 Form::Form(void) {

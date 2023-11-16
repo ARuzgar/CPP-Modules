@@ -31,6 +31,8 @@ class Bureaucrat
 // Exception Handler's
 		class GradeTooHighException;
 		class GradeTooLowException;
+// Other's
+		void 		signForm(std::string formName, bool isSigned);
 };
 
 class Bureaucrat::GradeTooHighException : public std::exception {

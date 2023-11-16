@@ -60,48 +60,11 @@ int main(void)
 	}
 	try{
 		Form form("Form", 42, 42);
-		Bureaucrat newOfficer("Ruru", 42);
-		std::cout << newOfficer << std::endl;
-		newOfficer.incrementGrade();
-		std::cout << newOfficer << std::endl;
-		newOfficer.decrementGrade();
-		std::cout << newOfficer << std::endl;
-		newOfficer.signForm(form.getName(), form.getSign());
-		std::cout << form << std::endl;
-	}
-	catch (std::exception & paperWork)	{
-		std::cout << paperWork.what() << std::endl;
-	}
-	try{
-		Form form("Form", 42, 42);
-		Bureaucrat newOfficer("Ruru", 42);
-		std::cout << newOfficer << std::endl;
-		newOfficer.incrementGrade();
-		std::cout << newOfficer << std::endl;
-		newOfficer.decrementGrade();
-		std::cout << newOfficer << std::endl;
-		newOfficer.signForm(form.getName(), form.getSign());
+		Bureaucrat newOfficer("Ruru", 43);
 		std::cout << form << std::endl;
 		newOfficer.signForm(form.getName(), form.getSign());
 		std::cout << form << std::endl;
-	}
-	catch (std::exception & paperWork)	{
-		std::cout << paperWork.what() << std::endl;
-	}
-
-	//this sequence wil test the beSigned() method
-	
-	try{
-		Form form("Form", 42, 42);
-		Bureaucrat newOfficer("Ruru", 42);
-		std::cout << newOfficer << std::endl;
-		newOfficer.incrementGrade();
-		std::cout << newOfficer << std::endl;
-		newOfficer.decrementGrade();
-		std::cout << newOfficer << std::endl;
-		newOfficer.signForm(form.getName(), form.getSign());
-		std::cout << form << std::endl;
-		newOfficer.signForm(form.getName(), form.getSign());
+		form.beSigned(newOfficer);
 		std::cout << form << std::endl;
 	}
 	catch (std::exception & paperWork)	{

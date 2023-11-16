@@ -47,24 +47,12 @@ int main(void)
 		std::cout << paperWork.what() << std::endl;
 	}
 	try{
-		Form form("Form", 0, 42);
-	}
-	catch (std::exception & paperWork)	{
-		std::cout << paperWork.what() << std::endl;
-	}
-	try{
-		Form form("Form", 42, 0);
-	}
-	catch (std::exception & paperWork)	{
-		std::cout << paperWork.what() << std::endl;
-	}
-	try{
-		Form form("Form", 42, 42);
-		Bureaucrat newOfficer("Ruru", 43);
+		Form form("Ihale", 42, 42);
+		Bureaucrat newOfficer("Ruru", 42);
 		std::cout << form << std::endl;
-		newOfficer.signForm(form.getName(), form.getSign());
-		std::cout << form << std::endl;
+		newOfficer.incrementGrade();
 		form.beSigned(newOfficer);
+		newOfficer.signForm(form.getName(), form.getSign());
 		std::cout << form << std::endl;
 	}
 	catch (std::exception & paperWork)	{

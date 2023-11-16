@@ -68,7 +68,7 @@ void	Bureaucrat::signForm(std::string formName, bool isSigned) {
 	if (isSigned)
 		std::cout << this->name << " signs " << formName << std::endl;
 	else
-		std::cout << this->name << " cannot sign " << formName << " because the dog ate it." << std::endl;
+		std::cout << this->name << " cannot sign " << formName << " because he's grade insufficent." << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &output, const Bureaucrat &bureuaucrat) {

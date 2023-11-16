@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <exception>
+# include "./Form.hpp"
 
 class Bureaucrat
 {
@@ -11,8 +12,8 @@ class Bureaucrat
 		int			grade;
 
 	public:
-//Orthodox Cannonical Form Basics
 
+//Orthodox Cannonical Form Basics
 		Bureaucrat(void); //Constructor
 		Bureaucrat(const std::string &name, int grade); //Constructor Func. Overload
 		Bureaucrat(Bureaucrat const &copy); //Copy Constructor(also kinda a Func. overload to Constructor)

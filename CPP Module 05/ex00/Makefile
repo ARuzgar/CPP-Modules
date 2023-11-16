@@ -1,8 +1,8 @@
-NAME = bureaucrat
+NAME = Bureaucrat
 
 OBJ_DIR = ./trash/
 
-SRCS = main.cpp Bureaucrat.cpp
+SRCS = $(wildcard *.cpp)
 
 OBJS = $(addprefix $(OBJ_DIR), $(SRCS:.cpp=.o))
 
@@ -29,6 +29,15 @@ fclean: clean
 
 git:
 	@make fclean
+	@cd ..
+	@git add .
+	@read -p "Enter commit message: " message; \
+	git commit -m "$$message"
+	@git push
+
+gitall:
+	@make fclean
+	@cd ..
 	@git add .
 	@read -p "Enter commit message: " message; \
 	git commit -m "$$message"

@@ -1,4 +1,4 @@
-NAME = Bureaucrat
+NAME = FormUp
 
 OBJ_DIR = ./trash/
 

@@ -16,13 +16,13 @@ int main(void)
 	bureaucrat.signForm(*form);
 	bureaucrat.signForm(*form);
 	bureaucrat.executeForm(*form);
-	bureaucrat2.executeForm(*form);
 	bureaucrat2.signForm(*form);
+	bureaucrat2.executeForm(*form);
 	delete form;
 
 	std::cout << std::endl << "RobotomyRequestForm" << std::endl;
 
-	form = new RobotomyRequestForm("Bender");
+	form = new RobotomyRequestForm("bureaucrat");
 	std::cout << *form << std::endl;
 	bureaucrat.signForm(*form);
 	bureaucrat.executeForm(*form);

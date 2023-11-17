@@ -24,6 +24,7 @@ RobotomyRequestForm 	&RobotomyRequestForm::operator=(RobotomyRequestForm const &
 
 void	RobotomyRequestForm::action() const {
 	std::cout << "Bzzz... drilling noises... Bzzz..." << std::endl;
+	srand(time(0));
 	if (rand() % 2)
 		std::cout << this->target << " has been robotomized successfully." << std::endl;
 	else

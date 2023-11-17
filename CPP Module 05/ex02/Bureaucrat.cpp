@@ -23,7 +23,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const &copy) {
 
 Bureaucrat::~Bureaucrat(void) {}
 
-Bureaucrat &	Bureaucrat::operator=(Bureaucrat const &otherBureaucrat) {
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &otherBureaucrat) {
 	this->name = otherBureaucrat.name;
 	this->grade = otherBureaucrat.grade;
 	std::cout << "New trainee literally turned into a copy of " << otherBureaucrat.getName() << std::endl;

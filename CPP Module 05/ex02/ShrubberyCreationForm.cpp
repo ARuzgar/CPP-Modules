@@ -16,7 +16,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void) {
 	std::cout << "Shrubbery Creation Form destroyed." << std::endl;
 }
 
-ShrubberyCreationForm &	ShrubberyCreationForm::operator=(ShrubberyCreationForm const &otherShrubberyCreationForm) {
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &otherShrubberyCreationForm) {
 	if (this != &otherShrubberyCreationForm)
 		this->target = otherShrubberyCreationForm.getTarget();
 	return (*this);

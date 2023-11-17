@@ -17,7 +17,7 @@ PresidentialPardonForm::~PresidentialPardonForm(void) {
 	std::cout << "Presidential Pardon has been destroyed." << std::endl;
 }
 
-PresidentialPardonForm &	PresidentialPardonForm::operator=(PresidentialPardonForm const &otherPresidentialPardonForm) {
+PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &otherPresidentialPardonForm) {
 	std::cout << "Presidential Pardon has been assigned." << std::endl;
 	if (this != &otherPresidentialPardonForm)
 		this->target = otherPresidentialPardonForm.target;

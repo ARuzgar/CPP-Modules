@@ -22,7 +22,7 @@ AForm::AForm(AForm const &copy) {
 	*this = copy;
 }
 
-AForm &	AForm::operator=(AForm const &otherAForm) {
+AForm &AForm::operator=(AForm const &otherAForm) {
 	this->name = otherAForm.name;
 	this->sign = otherAForm.sign;
 	this->gradeToSign = otherAForm.gradeToSign;

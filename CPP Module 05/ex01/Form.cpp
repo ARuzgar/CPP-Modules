@@ -22,7 +22,7 @@ Form::Form(Form const &copy) {
 	*this = copy;
 }
 
-Form &	Form::operator=(Form const &otherForm) {
+Form &Form::operator=(Form const &otherForm) {
 	this->name = otherForm.name;
 	this->sign = otherForm.sign;
 	this->gradeToSign = otherForm.gradeToSign;

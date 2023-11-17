@@ -2,7 +2,7 @@
 
 int main(void)
 {
-	Bureaucrat newOfficer("Ruru", 42);
+	/* Bureaucrat newOfficer("Ruru", 42);
 	std::cout << newOfficer << std::endl;
 	newOfficer.incrementGrade();
 	std::cout << newOfficer << std::endl;
@@ -30,7 +30,7 @@ int main(void)
 	}
 	catch (std::exception & paperWork)	{
 		std::cout << paperWork.what() << std::endl;
-	}
+	} */
 
 	Form form("Form", 42, 42);
 	std::cout << form << std::endl;

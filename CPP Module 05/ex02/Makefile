@@ -34,14 +34,6 @@ git:
 	git commit -m "$$message"
 	@git push
 
-gitall:
-	@make fclean
-	cd ..
-	@git add .
-	@read -p "Enter commit message: " message; \
-	git commit -m "$$message"
-	@git push
-
 re: fclean all
 
 .PHONY: all clean fclean re

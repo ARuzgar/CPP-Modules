@@ -1,4 +1,4 @@
-#include "PresedentialPardonForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(void) : AForm("Presidential Pardon Form", 25, 5)  {
 	this->target = "John Doe";

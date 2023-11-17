@@ -3,6 +3,9 @@
 
 # include <iostream>
 # include <exception>
+# include <string>
+# include <fstream>
+# include <sstream>
 # include "./Bureaucrat.hpp"
 
 class Bureaucrat;

@@ -9,12 +9,13 @@
 class ScalarConverter
 {
 	private:
-		
+		static bool ScalarConverter::CheckForEdge(std::string str);
 	public:
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter &copy);
 		ScalarConverter &operator=(const ScalarConverter &copy);
 		~ScalarConverter();
+		static void convert(std::string str);
 };
 
 #endif

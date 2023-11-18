@@ -1,4 +1,4 @@
-NAME = IdealInternship
+NAME = ScalarConversion
 
 OBJ_DIR = ./trash/
 

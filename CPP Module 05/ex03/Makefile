@@ -1,4 +1,4 @@
-NAME = FormUp
+NAME = IdealInternship
 
 OBJ_DIR = ./trash/
 
@@ -22,7 +22,7 @@ $(OBJ_DIR)%.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJ_DIR)
+	$(RM) $(OBJ_DIR) *_shrubbery
 
 fclean: clean
 	$(RM) $(NAME)

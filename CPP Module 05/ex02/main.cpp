@@ -22,7 +22,7 @@ int main(void)
 
 	std::cout << std::endl << "RobotomyRequestForm" << std::endl;
 
-	form = new RobotomyRequestForm("bureaucrat");
+	form = new RobotomyRequestForm("Bureaucrat");
 	std::cout << *form << std::endl;
 	bureaucrat.signForm(*form);
 	bureaucrat.executeForm(*form);

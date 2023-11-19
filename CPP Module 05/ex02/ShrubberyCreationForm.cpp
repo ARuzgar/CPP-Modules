@@ -13,7 +13,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &copy) 
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void) {
-	std::cout << "Shrubbery Creation Form destroyed." << std::endl;
+	std::cout << RESET << "Shrubbery Creation Form destroyed." << std::endl;
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &otherShrubberyCreationForm) {

@@ -9,7 +9,7 @@ int main(void)
 	Bureaucrat bureaucrat2("Bureaucrat2", 150);
 	AForm *form;
 
-	std::cout << std::endl << "PresidentialPardonForm" << std::endl;
+	std::cout << scrclean << BLUE << std::endl << "PresidentialPardonForm" << RESET << std::endl;
 
 	form = new PresidentialPardonForm("Jack Sparrow");
 	std::cout << *form << std::endl;
@@ -20,7 +20,7 @@ int main(void)
 	bureaucrat2.executeForm(*form);
 	delete form;
 
-	std::cout << std::endl << "RobotomyRequestForm" << std::endl;
+	std::cout << BLUE << std::endl << "RobotomyRequestForm" << RESET << std::endl;
 
 	form = new RobotomyRequestForm("Bureaucrat");
 	std::cout << *form << std::endl;
@@ -30,7 +30,7 @@ int main(void)
 	bureaucrat2.signForm(*form);
 	delete form;
 
-	std::cout << std::endl << "ShrubberyCreationForm" << std::endl;
+	std::cout << BLUE << std::endl << "ShrubberyCreationForm" << RESET << std::endl;
 
 	form = new ShrubberyCreationForm("Home");
 	std::cout << *form << std::endl;

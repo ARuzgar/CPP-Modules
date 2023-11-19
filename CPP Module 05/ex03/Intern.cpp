@@ -21,13 +21,13 @@ AForm *Intern::makeForm(std::string formName, std::string target) {
 	switch (formIndex)
 	{
 		case 0:
-			std::cout << "Intern creates " << formName << " form." << std::endl;
+			std::cout << RESET << "Intern creates " << formName << " form." << std::endl;
 			return new ShrubberyCreationForm(target);
 		case 1:
-			std::cout << "Intern creates " << formName << " form." << std::endl;
+			std::cout << RESET << "Intern creates " << formName << " form." << std::endl;
 			return new RobotomyRequestForm(target);
 		case 2:
-			std::cout << "Intern creates " << formName << " form." << std::endl;
+			std::cout << RESET << "Intern creates " << formName << " form." << std::endl;
 			return new PresidentialPardonForm(target);
 		default:
 			throw Intern::FormNotFoundException();
@@ -35,5 +35,5 @@ AForm *Intern::makeForm(std::string formName, std::string target) {
 }
 
 const char *Intern::FormNotFoundException::what() const throw() {
-	return "Form not found.";
+	return "\033[31mForm not found.";
 }

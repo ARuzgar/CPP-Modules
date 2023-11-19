@@ -9,16 +9,16 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AFor
 }
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &copy) {
-	std::cout << "Presidential Pardon has been copied." << std::endl;
+	std::cout << RESET << "Presidential Pardon has been copied." << std::endl;
 	*this = copy;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm(void) {
-	std::cout << "Presidential Pardon has been destroyed." << std::endl;
+	std::cout << RESET << "Presidential Pardon has been destroyed." << std::endl;
 }
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &otherPresidentialPardonForm) {
-	std::cout << "Presidential Pardon has been assigned." << std::endl;
+	std::cout << RESET << "Presidential Pardon has been assigned." << std::endl;
 	if (this != &otherPresidentialPardonForm)
 		this->target = otherPresidentialPardonForm.target;
 	return (*this);
@@ -26,7 +26,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm
 }
 
 void	PresidentialPardonForm::action() const {
-	std::cout << this->target << " has been pardoned by Zafod Beeblebrox." << std::endl;
+	std::cout << RESET << this->target << " has been pardoned by Zafod Beeblebrox." << std::endl;
 }
 
 std::string	PresidentialPardonForm::getTarget() const {

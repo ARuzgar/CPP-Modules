@@ -22,7 +22,7 @@ $(OBJ_DIR)%.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJ_DIR) *_shrubbery.txt
+	$(RM) $(OBJ_DIR) *_shrubbery
 
 fclean: clean
 	$(RM) $(NAME)

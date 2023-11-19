@@ -67,6 +67,7 @@
 		"concepts": "cpp",
 		"algorithm": "cpp",
 		"filesystem": "cpp",
-		"charconv": "cpp"
+		"charconv": "cpp",
+		"queue": "cpp"
 	}
 }

@@ -1,7 +1,5 @@
 #include "ScalarConverter.hpp"
 
-//gonna add a Non displayable for char
-
 int main(int ac, char **av)
 {
 

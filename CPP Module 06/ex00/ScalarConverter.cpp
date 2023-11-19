@@ -85,19 +85,19 @@ int ScalarConverter::checkCharAndDigits(std::string str)
 		return 0;
 	else
 	{
-		if (!isdigit(str[0]))
-		{
-			chary = static_cast<char>(str[0]);
-			inty = static_cast<int>(chary);
-			floty = static_cast<float>(chary);
-			douby = static_cast<double>(chary);
-		}
-		else if(isdigit(str[0]))
+		if (isdigit(str[0]))
 		{
 			inty = static_cast<int>((str[0] - '0'));
 			chary = static_cast<char>(inty);
 			floty = static_cast<float>(inty);
 			douby = static_cast<double>(inty);
+		}
+		else if(!isdigit(str[0]))
+		{
+			chary = static_cast<char>(str[0]);
+			inty = static_cast<int>(chary);
+			floty = static_cast<float>(chary);
+			douby = static_cast<double>(chary);
 		}
 		return 1;
 	}

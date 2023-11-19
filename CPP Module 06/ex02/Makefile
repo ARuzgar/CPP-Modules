@@ -1,4 +1,4 @@
-NAME = Internship
+NAME = ogtype
 
 OBJ_DIR = ./trash/
 
@@ -22,7 +22,7 @@ $(OBJ_DIR)%.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJ_DIR) *_shrubbery
+	$(RM) $(OBJ_DIR)
 
 fclean: clean
 	$(RM) $(NAME)

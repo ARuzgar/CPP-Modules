@@ -163,7 +163,10 @@ void	ScalarConverter::convert(std::string str) {
 		return;
 	else if (findType(str))
 	{
-		std::cout << "char: " << chary << std::endl;
+		if (inty < 32 || inty > 126)
+			std::cout << "char: Non displayable" << std::endl;
+		else
+			std::cout << "char: " << chary << std::endl;
 		std::cout << "int: " << inty << std::endl;
 		std::cout << "float: " << floty << "f" << std::endl;
 		std::cout << "double: " << douby << std::endl;

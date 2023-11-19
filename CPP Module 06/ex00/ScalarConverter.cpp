@@ -107,7 +107,7 @@ int ScalarConverter::checkInt(std::string str)
 {
 	std::istringstream iss(str);
 
-	if (iss >> inty)
+	if (iss >> inty && iss.eof())
 	{
 		chary = static_cast<char>(inty);
 		floty = static_cast<float>(inty);
@@ -165,8 +165,8 @@ void	ScalarConverter::convert(std::string str) {
 	{
 		std::cout << "char: " << chary << std::endl;
 		std::cout << "int: " << inty << std::endl;
-		std::cout << "float: " << std::setprecision(2) << floty << "f" << std::endl;
-		std::cout << "double: " << std::setprecision(2) << douby << std::endl;
+		std::cout << "float: " << floty << "f" << std::endl;
+		std::cout << "double: " << douby << std::endl;
 	}
 	else
 		throw(ScalarConverter::InvalidInputException());

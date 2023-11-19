@@ -14,14 +14,9 @@ class Serializer
 {
 	private:
 		struct Data;
-		static void *serialize(void);
-		static Data *deserialize(void *raw);
-		static std::string randomString(int len);
-		static int randomInt(void);
-		static char randomChar(void);
+		static uintptr_t serialize(Data *data);
+		static Data *deserialize(uintptr_t raw);
 		static void printData(Data *data);
-		static void printRaw(void *raw);
-		static std::string integerToString(int n);
 	public:
 		Serializer();
 		~Serializer();

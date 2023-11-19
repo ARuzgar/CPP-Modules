@@ -5,15 +5,25 @@
 # include <string>
 # include <iomanip>
 # include <cmath>
+# include <limits>
+# include <sstream>
+# include <exception>
+# include <cctype>
+
 
 class ScalarConverter
 {
 	private:
-		char chary;
-		int inty;
-		float floty;
-		double douby;
-		void ScalarConverter::CheckForEdge(std::string &str);
+		static char chary;
+		static int inty;
+		static float floty;
+		static double douby;
+
+		static int ScalarConverter::checkFloat(std::string str);
+		static int ScalarConverter::checkInt(std::string str);
+		static int ScalarConverter::checkCharAndDigits(std::string str);
+		static int ScalarConverter::checkForEdge(std::string str);
+		static int ScalarConverter::findType(std::string str);
 	public:
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter &copy);

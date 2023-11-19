@@ -99,13 +99,6 @@ int ScalarConverter::checkCharAndDigits(std::string str)
 	}
 }
 
-int ScalarConverter::checkFloat(std::string str)
-{
-	floty = std::strtod(str);
-
-	if 
-}
-
 int ScalarConverter::checkInt(std::string str)
 {
 	std::istringstream iss(str);
@@ -119,6 +112,38 @@ int ScalarConverter::checkInt(std::string str)
 	}
 	else
 		return 0;
+}
+
+int ScalarConverter::checkFloat(std::string str)
+{
+	char* end;
+	floty = std::strtof(str.c_str(), &end);
+
+	if (*end != '\0')
+		return 0;
+	else
+	{
+		inty = static_cast<int>(floty);
+		chary = static_cast<char>(floty);
+		douby = static_cast<double>(floty);
+		return 1;
+	} 
+}
+
+int ScalarConverter::checkDouble(std::string str)
+{
+	char* end;
+	floty = std::strtod(str.c_str(), &end);
+
+	if (*end != '\0')
+		return 0;
+	else
+	{
+		inty = static_cast<int>(floty);
+		chary = static_cast<char>(floty);
+		douby = static_cast<double>(floty);
+		return 1;
+	} 
 }
 
 int ScalarConverter::findType(std::string str)

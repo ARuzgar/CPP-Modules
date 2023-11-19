@@ -19,6 +19,7 @@ class ScalarConverter
 		static float floty;
 		static double douby;
 
+		static int ScalarConverter::checkDouble(std::string str);
 		static int ScalarConverter::checkFloat(std::string str);
 		static int ScalarConverter::checkInt(std::string str);
 		static int ScalarConverter::checkCharAndDigits(std::string str);

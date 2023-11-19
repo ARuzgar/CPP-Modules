@@ -1,4 +1,4 @@
-NAME = ScalarConversion
+NAME = convert
 
 OBJ_DIR = ./trash/
 

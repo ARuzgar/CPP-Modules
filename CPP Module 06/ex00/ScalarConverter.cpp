@@ -1,17 +1,22 @@
 #include "ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter() {
-	chary = 0;
-	inty = 0;
-	floty = 0;
-	douby = 0;
-}
+char ScalarConverter::chary = 0;
+int ScalarConverter::inty = 0;
+float ScalarConverter::floty = 0.0f;
+double ScalarConverter::douby = 0.0;
 
-ScalarConverter::ScalarConverter(const ScalarConverter &copy) {}
+ScalarConverter::ScalarConverter() {}
+
+ScalarConverter::ScalarConverter(const ScalarConverter &copy) {
+	(void)copy;
+}
 
 ScalarConverter::~ScalarConverter() {}
 
-ScalarConverter &	ScalarConverter::operator=(const ScalarConverter &copy) {}
+ScalarConverter &	ScalarConverter::operator=(const ScalarConverter &copy) {
+	(void)copy;
+	return *this;
+}
 
 int ScalarConverter::checkForEdge(std::string str) {
 	std::string edges[] = {"nan", "nanf", "-inf", "-inff", "+inf", "+inff", "inf", "inff"};
@@ -22,52 +27,52 @@ int ScalarConverter::checkForEdge(std::string str) {
 	{
 		case 0:
 			
-			std::cout << "char: impossible" << std::endl;
-			std::cout << "int: impossible" << std::endl;
-			std::cout << "float: nanf" << std::endl;
-			std::cout << "double: nan" << std::endl;
+			std::cout << "char: impossible" << std::endl
+			<< "int: impossible" << std::endl
+			<< "float: nanf" << std::endl
+			<< "double: nan" << std::endl;
 			return 1;
 		case 1:
-			std::cout << "char: impossible" << std::endl;
-			std::cout << "int: impossible" << std::endl;
-			std::cout << "float: nanf" << std::endl;
-			std::cout << "double: nan" << std::endl;
+			std::cout << "char: impossible" << std::endl
+			<< "int: impossible" << std::endl
+			<< "float: nanf" << std::endl
+			<< "double: nan" << std::endl;
 			return 1;
 		case 2:
-			std::cout << "char: impossible" << std::endl;
-			std::cout << "int: impossible" << std::endl;
-			std::cout << "float: -inff" << std::endl;
-			std::cout << "double: -inf" << std::endl;
+			std::cout << "char: impossible" << std::endl
+			<< "int: impossible" << std::endl
+			<< "float: -inff" << std::endl
+			<< "double: -inf" << std::endl;
 			return 1;
 		case 3:
-			std::cout << "char: impossible" << std::endl;
-			std::cout << "int: impossible" << std::endl;
-			std::cout << "float: -inff" << std::endl;
-			std::cout << "double: -inf" << std::endl;
+			std::cout << "char: impossible" << std::endl
+			<< "int: impossible" << std::endl
+			<< "float: -inff" << std::endl
+			<< "double: -inf" << std::endl;
 			return 1;
 		case 4:
-			std::cout << "char: impossible" << std::endl;
-			std::cout << "int: impossible" << std::endl;
-			std::cout << "float: +inff" << std::endl;
-			std::cout << "double: +inf" << std::endl;
+			std::cout << "char: impossible" << std::endl
+			<< "int: impossible" << std::endl
+			<< "float: +inff" << std::endl
+			<< "double: +inf" << std::endl;
 			return 1;
 		case 5:
-			std::cout << "char: impossible" << std::endl;
-			std::cout << "int: impossible" << std::endl;
-			std::cout << "float: +inff" << std::endl;
-			std::cout << "double: +inf" << std::endl;
+			std::cout << "char: impossible" << std::endl
+			<< "int: impossible" << std::endl
+			<< "float: +inff" << std::endl
+			<< "double: +inf" << std::endl;
 			return 1;
 		case 6:
-			std::cout << "char: impossible" << std::endl;
-			std::cout << "int: impossible" << std::endl;
-			std::cout << "float: +inff" << std::endl;
-			std::cout << "double: +inf" << std::endl;
+			std::cout << "char: impossible" << std::endl
+			<< "int: impossible" << std::endl
+			<< "float: +inff" << std::endl
+			<< "double: +inf" << std::endl;
 			return 1;
 		case 7:
-			std::cout << "char: impossible" << std::endl;
-			std::cout << "int: impossible" << std::endl;
-			std::cout << "float: +inff" << std::endl;
-			std::cout << "double: +inf" << std::endl;
+			std::cout << "char: impossible" << std::endl
+			<< "int: impossible" << std::endl
+			<< "float: +inff" << std::endl
+			<< "double: +inf" << std::endl;
 			return 1;
 		default:
 			return 0;
@@ -86,7 +91,6 @@ int ScalarConverter::checkCharAndDigits(std::string str)
 			inty = static_cast<int>(chary);
 			floty = static_cast<float>(chary);
 			douby = static_cast<double>(chary);
-			return 1;
 		}
 		else if(isdigit(str[0]))
 		{
@@ -94,8 +98,8 @@ int ScalarConverter::checkCharAndDigits(std::string str)
 			chary = static_cast<char>(inty);
 			floty = static_cast<float>(inty);
 			douby = static_cast<double>(inty);
-			return 1;
 		}
+		return 1;
 	}
 }
 
@@ -155,7 +159,7 @@ int ScalarConverter::findType(std::string str)
 }
 
 void	ScalarConverter::convert(std::string str) {
-	if(ScalarConverter::checkForEdge(str))
+	if(checkForEdge(str))
 		return;
 	else if (findType(str))
 	{

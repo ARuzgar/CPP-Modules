@@ -1,5 +1,8 @@
 #include "ScalarConverter.hpp"
 
+//gonna add a Non displayable for char
+//should increase the precision of the float and double
+
 int main(int ac, char **av)
 {
 

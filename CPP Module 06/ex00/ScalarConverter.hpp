@@ -19,12 +19,12 @@ class ScalarConverter
 		static float floty;
 		static double douby;
 
-		static int ScalarConverter::checkDouble(std::string str);
-		static int ScalarConverter::checkFloat(std::string str);
-		static int ScalarConverter::checkInt(std::string str);
-		static int ScalarConverter::checkCharAndDigits(std::string str);
-		static int ScalarConverter::checkForEdge(std::string str);
-		static int ScalarConverter::findType(std::string str);
+		static int checkDouble(std::string str);
+		static int checkFloat(std::string str);
+		static int checkInt(std::string str);
+		static int checkCharAndDigits(std::string str);
+		static int checkForEdge(std::string str);
+		static int findType(std::string str);
 	public:
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter &copy);

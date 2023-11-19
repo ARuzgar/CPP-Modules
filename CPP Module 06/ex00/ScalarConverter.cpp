@@ -8,20 +8,27 @@ ScalarConverter::~ScalarConverter() {}
 
 ScalarConverter &	ScalarConverter::operator=(const ScalarConverter &copy) {}
 
-bool ScalarConverter::CheckForEdge(std::string str) {
-	if (str == "nan" || str == "nanf" || str == "inf" || str == "inff" || str == "+inf" || str == "+inff" || str == "-inf" || str == "-inff")
-		return (true);
-	return (false);
+void ScalarConverter::CheckForEdge(std::string str) {
+		std::cout << "char: " << this->chary << std::endl;
+		std::cout << "int: " << this->inty << std::endl;
+		std::cout << "float: " << std::fixed << std::setprecision(1) << this->floty << "f" << std::endl;
+		std::cout << "double: " << std::fixed << std::setprecision(1) << this->douby << std::endl;
+
 }
 
-bool	ScalarConverter::convert(std::string str) {
-	if (CheckForEdge(str))
+void	ScalarConverter::convert(std::string str) {
+	try
 	{
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: " << str << std::endl;
-		std::cout << "double: " << str << std::endl;
-		return (true);
+		ScalarConverter::CheckForEdge(str);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
 	}
 	
+
+}
+
+const char* ScalarConverter::InvalidInputException::what() const throw() {
+	return ("Invalid Input.");
 }

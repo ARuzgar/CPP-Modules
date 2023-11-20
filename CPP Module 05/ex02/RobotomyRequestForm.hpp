@@ -8,14 +8,14 @@ class RobotomyRequestForm : public AForm
 	private:
 		std::string target;
 	public:
-								RobotomyRequestForm(void);
-								RobotomyRequestForm(const std::string &target);
-								RobotomyRequestForm(RobotomyRequestForm const &copy);
-		RobotomyRequestForm 	&operator=(RobotomyRequestForm const &otherRobotomyRequestForm);
-								~RobotomyRequestForm(void);
+		RobotomyRequestForm(void);
+		RobotomyRequestForm(const std::string &target);
+		RobotomyRequestForm(RobotomyRequestForm const &copy);
+		RobotomyRequestForm &operator=(RobotomyRequestForm const &otherRobotomyRequestForm);
+		~RobotomyRequestForm(void);
 
-		void					action() const;
-		std::string 			getTarget() const;
+		void		action() const;
+		std::string getTarget() const;
 };
 
 #endif

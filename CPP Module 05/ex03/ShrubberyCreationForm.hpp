@@ -8,14 +8,14 @@ class ShrubberyCreationForm : public AForm
 	private:
 		std::string target;
 	public:
-								ShrubberyCreationForm(void);
-								ShrubberyCreationForm(const std::string &target);
-								ShrubberyCreationForm(ShrubberyCreationForm const &copy);
+		ShrubberyCreationForm(void);
+		ShrubberyCreationForm(const std::string &target);
+		ShrubberyCreationForm(ShrubberyCreationForm const &copy);
 		ShrubberyCreationForm &operator=(ShrubberyCreationForm const &otherShrubberyCreationForm);
-								~ShrubberyCreationForm(void);
+		~ShrubberyCreationForm(void);
 
-		void					action() const;
-		std::string 			getTarget() const;
+		void		action() const;
+		std::string getTarget() const;
 };
 
 #endif

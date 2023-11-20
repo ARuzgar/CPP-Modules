@@ -16,21 +16,17 @@ class Form
 		int			gradeToExecute;
 
 	public:
-// Orthodox Cannonical Form Basics
-		Form(void); //Constructor
-		Form(const std::string &name, int gradeToSign, int gradeToExecute); //Constructor Func. Overload
-		Form(Form const &copy); //Copy Constructor
-		Form &operator=(Form const &otherForm); //Operator Overload
-		~Form(void); //Deconstructor
+		Form(void);
+		Form(const std::string &name, int gradeToSign, int gradeToExecute);
+		Form(Form const &copy);
+		Form &operator=(Form const &otherForm);
+		~Form(void);
 
-// Getter's
 		std::string getName() const;
 		bool		getSign() const;
 		int			getGradeToSign() const;
 		int			getGradeToExecute() const;
-// Setter's
 		void		beSigned(Bureaucrat &bureaucrat);
-// Exception Handler's
 		class GradeTooHighException;
 		class GradeTooLowException;
 };

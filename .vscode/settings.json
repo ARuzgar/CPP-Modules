@@ -68,6 +68,7 @@
 		"algorithm": "cpp",
 		"filesystem": "cpp",
 		"charconv": "cpp",
-		"queue": "cpp"
+		"queue": "cpp",
+		"*.tpp": "cpp"
 	}
 }

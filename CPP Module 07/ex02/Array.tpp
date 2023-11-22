@@ -7,7 +7,7 @@ template <typename T>
 Array<T>::Array(void)
 {
 	this->arraySize = 0;
-	this->data = NULL;
+	this->data = nullptr;
 }
 
 template <typename T>
@@ -22,26 +22,24 @@ Array<T>::Array(const Array &copy){
 }
 
 template <typename T>
-Array<T> &Array<T>::operator=(const Array &copy){
-	if (this != &copy)
-	{
-		if (this->data && this->arraySize && this->arraySize != 0 && this->data != NULL && this->data != 0 && this->data != nullptr)
-		{
-			std::cout << this->data << std::endl;
-			std::cout << this->data[0] << std::endl;
-			delete [] this->data;
-		}
-		this->arraySize = copy.arraySize;
-		this->data = new T[arraySize];
-		for (unsigned int i = 0; i < arraySize; i++)
-			this->data[i] = copy.data[i];
-	}
-	return (*this);
+Array<T> &Array<T>::operator=(const Array &copy) {
+    if (this != &copy) {
+		if (data != nullptr && arraySize > 0)
+	        delete[] data; // Deallocate current memory
+        arraySize = copy.arraySize;
+        data = new T[arraySize]; // Allocate new memory
+        for (unsigned int i = 0; i < arraySize; ++i)
+            data[i] = copy.data[i];
+    }
+    return *this;
 }
 
 template <typename T>
-Array<T>::~Array(void){
-	delete [] this->data;
+Array<T>::~Array(void) {
+    if (data != nullptr) {
+        delete[] data;
+        data = nullptr;
+    }
 }
 
 template <typename T>

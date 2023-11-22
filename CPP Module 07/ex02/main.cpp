@@ -48,6 +48,8 @@ int main(int, char**)
     {
         numbers[i] = rand();
     }
-    delete [] mirror;//
+
+    delete [] mirror;
+	system("leaks arrrrr");
     return 0;
 }

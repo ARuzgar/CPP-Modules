@@ -7,7 +7,7 @@ template <typename T>
 Array<T>::Array(void)
 {
 	this->arraySize = 0;
-	this->data = nullptr;
+	this->data = NULL;
 }
 
 template <typename T>
@@ -18,28 +18,28 @@ Array<T>::Array(const unsigned int n){
 
 template <typename T>
 Array<T>::Array(const Array &copy){
+	this->data = NULL;
 	*this = copy;
 }
 
 template <typename T>
 Array<T> &Array<T>::operator=(const Array &copy) {
     if (this != &copy) {
-		if (data != nullptr && arraySize > 0)
-	        delete[] data; // Deallocate current memory
+		delete[] this->data;
         arraySize = copy.arraySize;
-        data = new T[arraySize]; // Allocate new memory
+        this->data = new T[arraySize];
         for (unsigned int i = 0; i < arraySize; ++i)
-            data[i] = copy.data[i];
+            this->data[i] = copy.data[i];
     }
     return *this;
 }
 
 template <typename T>
 Array<T>::~Array(void) {
-    if (data != nullptr) {
+    /* if (data != nullptr) {
         delete[] data;
         data = nullptr;
-    }
+    } */
 }
 
 template <typename T>

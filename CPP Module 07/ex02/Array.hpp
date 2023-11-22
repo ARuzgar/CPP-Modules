@@ -2,6 +2,7 @@
 #define ARRAY_H
 
 #include <exception>
+#include <iostream>
 
 template <typename T>
 class Array
@@ -18,6 +19,13 @@ class Array
 		~Array();
 		T& operator[](unsigned int index);
 		unsigned int size() const;
+		class InvalidInputException;
+};
+
+template <typename T>
+class Array<T>::InvalidInputException : public std::exception {
+	public:
+		virtual const char* what() const throw();
 };
 
 #include "Array.tpp"

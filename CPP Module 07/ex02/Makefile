@@ -1,4 +1,4 @@
-NAME = itermplate
+NAME = arrrrr
 
 OBJ_DIR = ./trash/
 

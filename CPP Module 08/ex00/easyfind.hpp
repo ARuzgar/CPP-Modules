@@ -19,12 +19,12 @@ class NotFoundException : public std::exception
 };
 
 template<typename T>
-typename T::iterator easyfind(T &container, int value)
+typename T::iterator easyfind(T &container, int numToFind)
 {
-	typename T::iterator cont = std::find(container.begin(), container.end(), value);
-	if (cont == container.end())
+	typename T::iterator vecToRetr = std::find(container.begin(), container.end(), numToFind);
+	if (vecToRetr == container.end())
 		throw NotFoundException();
-	return cont;
+	return vecToRetr;
 }
 
 #endif

@@ -69,6 +69,11 @@
 		"filesystem": "cpp",
 		"charconv": "cpp",
 		"queue": "cpp",
-		"*.tpp": "cpp"
+		"*.tpp": "cpp",
+		"__functional_base": "cpp",
+		"functional": "cpp",
+		"iterator": "cpp",
+		"utility": "cpp",
+		"list": "cpp"
 	}
 }

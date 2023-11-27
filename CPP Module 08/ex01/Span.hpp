@@ -9,13 +9,6 @@
 # include <cstdlib>
 # include <ctime>
 # include <iterator>
-# include <list>
-# include <deque>
-# include <set>
-# include <map>
-# include <stack>
-# include <queue>
-# include <cstdlib> 
 # include <cctype>
 # include "unistd.h"
 

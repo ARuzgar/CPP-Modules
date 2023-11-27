@@ -1,4 +1,4 @@
-NAME = span
+NAME = btc
 
 OBJ_DIR = ./trash/
 

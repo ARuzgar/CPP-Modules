@@ -9,6 +9,13 @@ bool isNumber(const std::string& s)
     return (s.find_first_not_of("0123456789") == std::string::npos);
 }
 
+void	Contact::setZeroIt()
+{
+	this->firstName = "----------";	
+	this->lastName = "----------";	
+	this->nickname = "----------";	
+}
+
 void	Contact::setFirstName()
 {
 	std::string firstName;
@@ -20,6 +27,7 @@ void	Contact::setFirstName()
 	std::getline(std::cin, firstName);
 	if (firstName.empty())
 		goto label;
+	std::cout << "\033[3;35mThe name... " << firstName << "... how strange..." << std::endl;
 	this->firstName = firstName;
 }
 
@@ -29,12 +37,12 @@ void	Contact::setLastName()
 	std::cout << "\033[2J\033[1;1H" << std::endl;
 	phonebook.displayInterface();
 	std::cout << "\033[999;1H";
-	std::cout << "\033[3;35mThe name... " << firstName << "... how strange..." << std::endl;
 	label:
 	std::cout << "\033[3;35mWhat is the Last Name of this Contact of yours : \033[1;37m";
 	std::getline(std::cin, lastName);
 	if (lastName.empty())
 		goto label;
+	std::cout << "\033[3;35mHmm... Sounds like a royal bloodline..." << std::endl;
 	this->lastName = lastName;
 }
 
@@ -44,12 +52,12 @@ void	Contact::setNickname()
 	std::cout << "\033[2J\033[1;1H" << std::endl;
 	phonebook.displayInterface();
 	std::cout << "\033[999;1H";
-	std::cout << "\033[3;35mHmm... Sounds like a royal bloodline..." << std::endl;
 	label:
 	std::cout << "\033[3;35mYou can't identify everyone just by their name... Tell me who is " << this->firstName << " for you and you only? What's " << this->firstName << "'s Nickname? : \033[1;37m";
 	std::getline(std::cin, nickname);
 	if (nickname.empty())
 		goto label;
+	std::cout << "\033[3;35mA choice of wise..." << std::endl;
 	this->nickname = nickname;
 }
 
@@ -59,7 +67,6 @@ void	Contact::setPhoneNumber()
 	std::cout << "\033[2J\033[1;1H" << std::endl;
 	phonebook.displayInterface();
 	std::cout << "\033[999;1H";
-	std::cout << "\033[3;35mA choice of wise..." << std::endl;
 	label:
 	std::cout << "\033[3;35mWhat's your contacts Phone Number? : \033[1;37m";
 	std::getline(std::cin, phoneNumber);
@@ -67,6 +74,7 @@ void	Contact::setPhoneNumber()
 		std::cout << "\033[3;35mDon't try to fool me,\033[3;31mḠ̷͕̣̲͋̀͐̋̌͝i̵̛̬̘͚̦͕̋̋̉̑͆̊̍̇͊͘͝v̸̆̎̓̒͂̑ė̵̹̎̒̈́̄̓̋ ̸̅̋͛́̿̑̋m̶̛̆͑͌̍̈́͐ȅ̴̛̟͛͂̓̈́̉̀̕ ̴̡͕͔͙̯̗̙́̾̄͝t̵̡̧̖͖̜͕͖́̀h̷̪͕̼̥̱̪͕̻̫̖̀͋̊̈́̏̏̅̔͜e̷̥̭̟̩̥͖͔̓̅͌̉̊͜ ̵̨̡̡̹̞͉̮͓̳̥̹͛̈͌͆̓̈́̈̑̌̕ͅņ̶̛̖̩̪̲̮̩̓͂̾̄̄̈̑̾̓̕͝͝͠ư̵̛̄̽̂̐̈́̑͋͘m̷̡̢̟̳͖̙͂͌̇̓̓̈́̈̈̾̓̎͘̚͜b̶̨̹̟̰̔̔̓̈́͒̈́͗̓̐͌͝͝͠͝ę̴̘̘̲̫̠̈́̃̐̏͋̈́͑̓͜͝r̷̢̜̘̝̓͛͑͋s̸̢̛̩̣͋͌͐͌͌̊̇̿̔̐̍͝!!!" << std::endl;
 		goto label;
 	}
+	std::cout << "\033[3;35mWell done darling, you are almost there!" << std::endl;
 	this->phoneNumber = phoneNumber; 
 }
 
@@ -76,7 +84,6 @@ void	Contact::setDarkestSecret()
 	std::cout << "\033[2J\033[1;1H" << std::endl;
 	phonebook.displayInterface();
 	std::cout << "\033[999;1H";
-	std::cout << "\033[3;35mWell done darling, you are almost there!" << std::endl;
 	label:
 	std::cout << "\033[1;35mWell, we are almost done... You only know someone as much as you know their darkness... Tell me what's your Contact's Darkest Secret? : \033[1;37m";
 	std::getline(std::cin, darkestSecret);
@@ -94,7 +101,7 @@ std::string	Contact::getFirstName(char a)
 		std::string shorter;
 		for (i = 0; i <= 9; i++)
 		{
-			if (i == 9 && size > 10)
+			if (i == size || (i == 9 && size > 10))
 				break;
 			else
 				shorter += firstName[i];
@@ -116,7 +123,7 @@ std::string	Contact::getLastName(char a)
 		std::string shorter;
 		for (i = 0; i <= 9; i++)
 		{
-			if (i == 9 && size > 10)
+			if (i == size || (i == 9 && size > 10))
 				break;
 			else
 				shorter += lastName[i];
@@ -138,7 +145,7 @@ std::string	Contact::getNickname(char a)
 		std::string shorter;
 		for (i = 0; i <= 9; i++)
 		{
-			if (i == 9 && size > 10)
+			if (i == size || (i == 9 && size > 10))
 				break;
 			else
 				shorter += nickname[i];
@@ -160,7 +167,7 @@ std::string	Contact::getPhoneNumber(char a)
 		std::string shorter;
 		for (i = 0; i <= 9; i++)
 		{
-			if (i == 9 && size > 10)
+			if (i == size || (i == 9 && size > 10))
 				break;
 			else
 				shorter += phoneNumber[i];
@@ -182,7 +189,7 @@ std::string	Contact::getDarkestSecret(char a)
 		std::string shorter;
 		for (i = 0; i <= 9; i++)
 		{
-			if (i == 9 && size > 10)
+			if (i == size || (i == 9 && size > 10))
 				break;
 			else
 				shorter += darkestSecret[i];

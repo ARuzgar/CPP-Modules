@@ -16,6 +16,7 @@ public:
 	void		setNickname(void);
 	void		setPhoneNumber(void);
 	void		setDarkestSecret(void);
+	void		setZeroIt(void);
 	std::string	getFirstName(char);
 	std::string	getLastName(char);
 	std::string	getNickname(char);

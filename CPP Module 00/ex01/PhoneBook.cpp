@@ -68,6 +68,7 @@ void    PhoneBook::addContact()
 		{
 			this->contacts[j] = this->contacts[j + 1];
 		}
+		this->contacts[7].setZeroIt();
 		id = 7;
 		goto label;
 	}
@@ -101,7 +102,9 @@ void PhoneBook::displayContact()
 		std::cout << "Empty Index" << std::endl;
 		return ;
 	}
-	phonebook.displayInterface();
+    std::cout << "\033[2J\033[1;1H" << std::endl;
+    phonebook.displayInterface();
     std::cout << "\033[3;35mFirst Name : \033[3;37m" << this->contacts[index - 1].getFirstName('b') << "\033[3;35m\nLast Name : \033[3;37m" << this->contacts[index - 1].getLastName('b') << "\033[3;35m\nNickname : \033[3;37m" << this->contacts[index - 1].getNickname('b') << "\033[3;35m\nPhone Number : \033[3;37m" << this->contacts[index - 1].getPhoneNumber('b') << "\033[3;35m\nDarkest Secret : \033[3;37m" << this->contacts[index - 1].getDarkestSecret('b') << std::endl;
+    std::cout << "\033[999;1H";
 	std::cout << "\033[3;35mPress Enter To go Back, Type ADD to ADD another, Type SEARCH to SEARCH another, Type EXIT to EXIT.\n";
 }

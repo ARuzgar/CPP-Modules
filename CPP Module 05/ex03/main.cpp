@@ -12,30 +12,7 @@ int main(void)
 	AForm *ppf;
 	AForm *unknown;
 
-	try
-	{
-		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	try
-	{
-		scf = someRandomIntern.makeForm("shrubbery creation", "Bender");
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	try
-	{
-		ppf = someRandomIntern.makeForm("presidential pardon", "Bender");
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	std::cout << std::endl << "------" << MAGENTA << "BENDER LEARNS DA JOB" << RESET << "-----------" << std::endl;
 	try
 	{
 		unknown = someRandomIntern.makeForm("unknown", "Bender");
@@ -44,10 +21,38 @@ int main(void)
 	{
 		std::cout << e.what() << std::endl;
 	}
+	std::cout << std::endl << RESET << "------" << MAGENTA << "BENDER TRIES ROBOTOMY" << RESET << "-----------" << std::endl;
+	try
+	{
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl << "------" << MAGENTA << "BENDER TRIES SHRUBBERY" << RESET << "-----------" << std::endl;
+	try
+	{
+		scf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl << "------" << MAGENTA << "BENDER TRIES PRESIDENTIAL PARDON" << RESET << "-----------" << std::endl;
+	try
+	{
+		ppf = someRandomIntern.makeForm("presidential pardon", "Bender");
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
 
 	Bureaucrat b1("Bureaucrat 1", 1);
 	Bureaucrat b2("Bureaucrat 2", 150);
-
+	std::cout << std::endl << RESET << "------" << MAGENTA << "STANDARD BUREAUCRACY" << RESET << "-----------" << std::endl;
 	b1.signForm(*rrf);
 	b1.executeForm(*rrf);
 	b1.signForm(*scf);

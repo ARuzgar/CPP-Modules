@@ -3,7 +3,7 @@
 int main(void)
 {
 	Bureaucrat newOfficer("Ruru", 42);
-	std::cout << newOfficer << std::endl;
+	std::cout << scrclean << newOfficer << std::endl;
 	newOfficer.incrementGrade();
 	std::cout << newOfficer << std::endl;
 	newOfficer.decrementGrade();

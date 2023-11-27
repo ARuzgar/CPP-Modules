@@ -35,5 +35,5 @@ AForm *Intern::makeForm(std::string formName, std::string target) {
 }
 
 const char *Intern::FormNotFoundException::what() const throw() {
-	return "\033[31mForm not found.";
+	return "\033[31mForm can not found to form to create, maybe try Section 2 Bend 4 next time?";
 }

@@ -12,7 +12,7 @@ int main(void)
 	AForm *ppf;
 	AForm *unknown;
 
-	std::cout << std::endl << "------" << MAGENTA << "BENDER LEARNS DA JOB" << RESET << "-----------" << std::endl;
+	std::cout << scrclean << std::endl << "------" << MAGENTA << "BENDER LEARNS DA JOB" << RESET << "-----------" << std::endl;
 	try
 	{
 		unknown = someRandomIntern.makeForm("unknown", "Bender");

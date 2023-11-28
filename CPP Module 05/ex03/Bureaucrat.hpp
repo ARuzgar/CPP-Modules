@@ -22,8 +22,8 @@ class AForm;
 class Bureaucrat
 {
 	private:
-		std::string name;
-		int			grade;
+		const std::string	name;
+		int					grade;
 	public:
 
 					Bureaucrat(void);

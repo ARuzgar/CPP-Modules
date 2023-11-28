@@ -1,22 +1,18 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(void) {
-	this->name = "John Doe";
-	this->grade = 150;
+Bureaucrat::Bureaucrat(void) : name("John Doe"), grade(150) {
 	std::cout << RESET << "Hurraay " << this->name << " has been hired!" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string &name, int grade) {
-	this->name = name;
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name), grade(grade)  {
 	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 	else if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
-	this->grade = grade;
 	std::cout << RESET << "Hurraay " << this->name << " has been hired!" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &copy) {
+Bureaucrat::Bureaucrat(Bureaucrat const &copy) : name(copy.getName()) {
 	std::cout << RESET << "A new trainee assigned to " << copy.getName() << std::endl;
 	*this = copy;
 }
@@ -24,7 +20,6 @@ Bureaucrat::Bureaucrat(Bureaucrat const &copy) {
 Bureaucrat::~Bureaucrat(void) {}
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &otherBureaucrat) {
-	this->name = otherBureaucrat.name;
 	this->grade = otherBureaucrat.grade;
 	std::cout << RESET << "New trainee literally turned into a copy of " << otherBureaucrat.getName() << std::endl;
 	return *this;

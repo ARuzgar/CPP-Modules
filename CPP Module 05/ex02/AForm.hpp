@@ -13,10 +13,10 @@ class Bureaucrat;
 class AForm
 {
 	private:
-		std::string 	name;
+		const std::string 		name;
+		const int				gradeToSign;
+		const int				gradeToExecute;
 		bool			sign;
-		int				gradeToSign;
-		int				gradeToExecute;
 
 	public:
 						AForm(void);

@@ -1,32 +1,21 @@
 # include "AForm.hpp"
 
-AForm::AForm(void) {
-	this->name = "AForm";
-	this->sign = false;
-	this->gradeToSign = 150;
-	this->gradeToExecute = 150;
+AForm::AForm(void) : name("AForm"), gradeToSign(150), gradeToExecute(150), sign(false) {
 }
 
-AForm::AForm(const std::string &name, int gradeToSign, int gradeToExecute) {
-	this->name = name;
-	this->sign = false;
+AForm::AForm(const std::string &name, int gradeToSign, int gradeToExecute) : name(name), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute), sign(false) {
 	if (gradeToSign > 150 || gradeToExecute > 150)
 		throw AForm::GradeTooLowException();
 	else if (gradeToSign < 1 || gradeToExecute < 1)
 		throw AForm::GradeTooHighException();
-	this->gradeToSign = gradeToSign;
-	this->gradeToExecute = gradeToExecute;
 }
 
-AForm::AForm(AForm const &copy) {
+AForm::AForm(AForm const &copy) : name(copy.name), gradeToSign(copy.gradeToSign), gradeToExecute(copy.gradeToExecute) {
 	*this = copy;
 }
 
 AForm &AForm::operator=(AForm const &otherAForm) {
-	this->name = otherAForm.name;
 	this->sign = otherAForm.sign;
-	this->gradeToSign = otherAForm.gradeToSign;
-	this->gradeToExecute = otherAForm.gradeToExecute;
 	return *this;
 }
 

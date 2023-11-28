@@ -25,6 +25,7 @@ class ScalarConverter
 		static int checkCharAndDigits(std::string str);
 		static int checkForEdge(std::string str);
 		static int findType(std::string str);
+		static int checkIntEdge(std::string str); 
 	public:
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter &copy);

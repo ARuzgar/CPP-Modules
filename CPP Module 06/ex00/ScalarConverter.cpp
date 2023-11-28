@@ -103,10 +103,24 @@ int ScalarConverter::checkCharAndDigits(std::string str)
 	}
 }
 
+int ScalarConverter::checkIntEdge(std::string str) {
+	long checker = strtoul(str.c_str(), NULL, 10);
+	if (checker > INT_MAX && str.length() >= 10)
+	{
+		std::cout << "char: impossible" << std::endl
+		<< "int: impossible" << std::endl
+		<< "float: beyond conversion" << "" << std::endl
+		<< "double: beyond conversion" << std::endl;
+		return 1;
+	}
+	else{
+		return 0;
+	}
+}
+
 int ScalarConverter::checkInt(std::string str)
 {
 	std::istringstream iss(str);
-
 	if (iss >> inty && iss.eof())
 	{
 		chary = static_cast<char>(inty);
@@ -159,7 +173,7 @@ int ScalarConverter::findType(std::string str)
 }
 
 void	ScalarConverter::convert(std::string str) {
-	if(checkForEdge(str))
+	if(checkForEdge(str) || checkIntEdge(str))
 		return;
 	else if (findType(str))
 	{

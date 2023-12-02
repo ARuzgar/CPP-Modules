@@ -104,8 +104,8 @@ int ScalarConverter::checkCharAndDigits(std::string str)
 }
 
 int ScalarConverter::checkIntEdge(std::string str) {
-	long checker = strtoul(str.c_str(), NULL, 10);
-	if (checker > INT_MAX && str.length() >= 10)
+	long long checker = strtoul(str.c_str(), NULL, 10);
+	if ((checker > INT_MAX && str.length() == 10) || str.length() > 10)
 	{
 		std::cout << "char: impossible" << std::endl
 		<< "int: impossible" << std::endl
@@ -135,10 +135,18 @@ int ScalarConverter::checkInt(std::string str)
 int ScalarConverter::checkFloat(std::string str)
 {
 	char* end;
+
 	floty = std::strtof(str.c_str(), &end);
 
-	if (*end != '\0')
+	if (*end != '\0' && !floty)
 		return 0;
+	else if (*end == 'f' || (*end == 0 && floty))
+	{
+		inty = static_cast<int>(floty);
+		chary = static_cast<char>(floty);
+		douby = static_cast<double>(floty);
+		return 1;
+	}
 	else
 	{
 		inty = static_cast<int>(floty);
@@ -151,15 +159,15 @@ int ScalarConverter::checkFloat(std::string str)
 int ScalarConverter::checkDouble(std::string str)
 {
 	char* end;
-	floty = std::strtod(str.c_str(), &end);
+	douby = std::strtod(str.c_str(), &end);
 
-	if (*end != '\0')
+	if (*end != '\0' && !douby)
 		return 0;
 	else
 	{
-		inty = static_cast<int>(floty);
-		chary = static_cast<char>(floty);
-		douby = static_cast<double>(floty);
+		inty = static_cast<int>(douby);
+		chary = static_cast<char>(douby);
+		floty = static_cast<float>(douby);
 		return 1;
 	} 
 }

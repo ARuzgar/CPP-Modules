@@ -22,6 +22,15 @@ RobotomyRequestForm 	&RobotomyRequestForm::operator=(RobotomyRequestForm const &
 	return (*this);
 }
 
+void	RobotomyRequestForm::execute(Bureaucrat const & executor) const {
+	if (executor.getGrade() > this->getGradeToExecute())
+		throw AForm::GradeTooLowException();
+	else if (!this->getSign())
+		throw AForm::FormNotSignedException();
+	else
+		this->action();
+}
+
 void	RobotomyRequestForm::action() const {
 	std::cout << RESET << "Bzzz... drilling noises... Bzzz..." << std::endl;
 	std::srand(std::time(0));

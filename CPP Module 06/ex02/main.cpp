@@ -7,6 +7,7 @@ int main(int ac, char **av)
     {
         Base *rand = generate();
         identify(rand);
+        identify(*rand);
         delete rand;
     }
     return (0);

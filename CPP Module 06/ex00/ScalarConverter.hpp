@@ -14,23 +14,26 @@
 class ScalarConverter
 {
 	private:
-		static char chary;
+		ScalarConverter();
+		ScalarConverter(const ScalarConverter &copy);
+		ScalarConverter &operator=(const ScalarConverter &copy);
+		~ScalarConverter();
+
 		static int inty;
 		static float floty;
 		static double douby;
+		static char chary;
+		static int a;
 
 		static int checkDouble(std::string str);
 		static int checkFloat(std::string str);
 		static int checkInt(std::string str);
 		static int checkCharAndDigits(std::string str);
-		static int checkForEdge(std::string str);
+		static int checkForNaN(std::string str);
 		static int findType(std::string str);
 		static int checkIntEdge(std::string str); 
+		static int checkNanEdge(std::string str); 
 	public:
-		ScalarConverter();
-		ScalarConverter(const ScalarConverter &copy);
-		ScalarConverter &operator=(const ScalarConverter &copy);
-		~ScalarConverter();
 		static void convert(std::string str);
 		class InvalidInputException;
 };

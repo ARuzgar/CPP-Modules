@@ -18,6 +18,7 @@ class Span
 		unsigned int 		N;
 		std::vector<int> 	v;
 		int 				min;
+
 	public:
 				Span(unsigned int n);
 				Span(const Span &copy);
@@ -26,7 +27,7 @@ class Span
 		void 	addNumber(int n);
 		int 	shortestSpan();
 		int 	longestSpan();
-		void 	fillRand(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+		void	fillRand();
 		class 	FullException;
 };
 

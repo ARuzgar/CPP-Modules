@@ -20,7 +20,10 @@ Span & Span::operator=(const Span &copy) {
 }
 
 Span::~Span() {}
+
 void Span::addNumber(int n) {
+	if (this->v.size() == this->N)
+		throw Span::FullException();
 	this->v.push_back(n);
 }
 
@@ -43,13 +46,14 @@ int Span::longestSpan() {
 	return (*(this->v.end() - 1) - *(this->v.begin()));
 }
 
-void Span::fillRand(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
+void Span::fillRand() {
 	srand(time(NULL));
-	for (std::vector<int>::iterator it = begin; it != end; it++) {
-		*it = rand();
+	for (unsigned int i = 0; i < this->N; i++) {
+		this->v.push_back(rand());
 	}
 }
 
 const char *Span::FullException::what() const throw() {
-	return "Span is full";
+	return "Span is full.";
 }
+

@@ -32,7 +32,7 @@ class AForm
 		
 
 		virtual void	action() const = 0;
-		void 			execute(Bureaucrat const & executor) const;
+		virtual void 	execute(Bureaucrat const & executor) const = 0;
 		void			beSigned(Bureaucrat &bureaucrat);
 		class 			GradeTooHighException;
 		class 			GradeTooLowException;

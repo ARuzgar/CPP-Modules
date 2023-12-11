@@ -20,9 +20,18 @@ PresidentialPardonForm::~PresidentialPardonForm(void) {
 PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &otherPresidentialPardonForm) {
 	std::cout << RESET << "Presidential Pardon has been assigned." << std::endl;
 	if (this != &otherPresidentialPardonForm)
-		this->target = otherPresidentialPardonForm.target;
+		this->target = otherPresidentialPardonForm.getTarget();
 	return (*this);
 	
+}
+
+void	PresidentialPardonForm::execute(Bureaucrat const & executor) const {
+	if (executor.getGrade() > this->getGradeToExecute())
+		throw AForm::GradeTooLowException();
+	else if (!this->getSign())
+		throw AForm::FormNotSignedException();
+	else
+		this->action();
 }
 
 void	PresidentialPardonForm::action() const {

@@ -18,7 +18,7 @@ ScalarConverter &	ScalarConverter::operator=(const ScalarConverter &copy) {
 	return *this;
 }
 
-int ScalarConverter::checkForEdge(std::string str) {
+int ScalarConverter::checkForNaN(std::string str) {
 	std::string edges[] = {"nan", "nanf", "-inf", "-inff", "+inf", "+inff", "inf", "inff"};
 	int edgeIndex = 0;
 	while (edgeIndex < 8 && str != edges[edgeIndex])
@@ -103,10 +103,45 @@ int ScalarConverter::checkCharAndDigits(std::string str)
 	}
 }
 
+int ScalarConverter::checkIntEdge(std::string str) {
+	if ( str.find('.') != std::string::npos || str.find('f') != std::string::npos) {
+		return 0;
+	}
+
+	long long checker = strtoul(str.c_str(), NULL, 10);
+	if (((checker > INT_MAX && str.length() == 10) || str.length() > 10))
+	{
+		std::cout << "char: impossible" << std::endl
+		<< "int: impossible" << std::endl
+		<< "float: beyond conversion" << "" << std::endl
+		<< "double: beyond conversion" << std::endl;
+		return 1;
+	}
+	else{
+		return 0;
+	}
+}
+
+int ScalarConverter::checkNanEdge(std::string str) {
+    if ((str.substr(0, 3) == "nan" || str.substr(0, 4) == "nanf" || str.substr(0, 3) == "inf") && str.length() > 3) {
+		std::cout << "Invalid Input" << std::endl;
+        return 1;
+    }
+    if ((str.substr(0, 4) == "inff" || str.substr(0, 4) == "+inf" || str.substr(0, 5) == "+inff" || str.substr(0, 4) == "-inf") && str.length() > 4) {
+		std::cout << "Invalid Input" << std::endl;
+        return 1;
+    }
+    if (str.substr(0, 5) == "-inff" && str.length() > 5) {
+		std::cout << "Invalid Input" << std::endl;
+        return 1;
+    }
+    return 0;
+}
+
+
 int ScalarConverter::checkInt(std::string str)
 {
 	std::istringstream iss(str);
-
 	if (iss >> inty && iss.eof())
 	{
 		chary = static_cast<char>(inty);
@@ -121,9 +156,10 @@ int ScalarConverter::checkInt(std::string str)
 int ScalarConverter::checkFloat(std::string str)
 {
 	char* end;
+
 	floty = std::strtof(str.c_str(), &end);
 
-	if (*end != '\0')
+	if (*end != '\0' && !floty)
 		return 0;
 	else
 	{
@@ -137,15 +173,15 @@ int ScalarConverter::checkFloat(std::string str)
 int ScalarConverter::checkDouble(std::string str)
 {
 	char* end;
-	floty = std::strtod(str.c_str(), &end);
+	douby = std::strtod(str.c_str(), &end);
 
-	if (*end != '\0')
+	if (*end != '\0' && !douby)
 		return 0;
 	else
 	{
-		inty = static_cast<int>(floty);
-		chary = static_cast<char>(floty);
-		douby = static_cast<double>(floty);
+		inty = static_cast<int>(douby);
+		chary = static_cast<char>(douby);
+		floty = static_cast<float>(douby);
 		return 1;
 	} 
 }
@@ -159,7 +195,7 @@ int ScalarConverter::findType(std::string str)
 }
 
 void	ScalarConverter::convert(std::string str) {
-	if(checkForEdge(str))
+	if(checkForNaN(str) || checkIntEdge(str) || str.empty() || checkNanEdge(str))
 		return;
 	else if (findType(str))
 	{
@@ -168,8 +204,8 @@ void	ScalarConverter::convert(std::string str) {
 		else
 			std::cout << "char: " << chary << std::endl;
 		std::cout << "int: " << inty << std::endl;
-		std::cout << "float: " << floty << "f" << std::endl;
-		std::cout << "double: " << douby << std::endl;
+		std::cout << "float: " << std::fixed << std::setprecision(1) << floty << "f" << std::endl
+          << "double: " << std::fixed << std::setprecision(1) << douby << std::endl;
 	}
 	else
 		throw(ScalarConverter::InvalidInputException());

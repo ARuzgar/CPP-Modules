@@ -44,15 +44,6 @@ void		AForm::beSigned(Bureaucrat &bureaucrat) {
 		throw AForm::GradeTooLowException();
 }
 
-void		AForm::execute(Bureaucrat const & executor) const {
-	if (executor.getGrade() > this->gradeToExecute)
-		throw AForm::GradeTooLowException();
-	else if (!this->sign)
-		throw AForm::FormNotSignedException();
-	else
-		this->action();
-}
-
 const char* AForm::FormNotSignedException::what() const throw() {
 	return "\033[31mForm is not signed!";
 }

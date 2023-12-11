@@ -13,10 +13,10 @@ class Bureaucrat;
 class AForm
 {
 	private:
-		std::string 	name;
+		const std::string 		name;
+		const int				gradeToSign;
+		const int				gradeToExecute;
 		bool			sign;
-		int				gradeToSign;
-		int				gradeToExecute;
 
 	public:
 						AForm(void);
@@ -32,7 +32,7 @@ class AForm
 		
 
 		virtual void	action() const = 0;
-		void 			execute(Bureaucrat const & executor) const;
+		virtual void 	execute(Bureaucrat const & executor) const = 0;
 		void			beSigned(Bureaucrat &bureaucrat);
 		class 			GradeTooHighException;
 		class 			GradeTooLowException;

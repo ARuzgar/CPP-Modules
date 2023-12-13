@@ -21,6 +21,7 @@ class BitcoinExchange
 	private:
 		std::map<int, float> 	data;
 		float 					boughtBTC;
+		std::string				wrongDate;
 	public:
 								BitcoinExchange();
 								BitcoinExchange(BitcoinExchange const & src);
@@ -40,6 +41,7 @@ class BitcoinExchange
 		float 					getBitcoinPrice(int dateInt) const;
 		void 					updateBoughtBTC(float const &spendatureFloat, float const &btcPrice);
 		void 					resetBoughtBTC();
+		void 					readDataFromFile(const std::string& filename);
 
 		class					badInputException;
 		class					notAPositiveNumberException;
@@ -68,7 +70,11 @@ class BitcoinExchange::numberTooLargeException : public std::exception
 
 class BitcoinExchange::invalidDateException : public std::exception
 {
+	private:
+		std::string date;
 	public:
+		void	setDate(std::string &date);
+		~invalidDateException() throw();
 		virtual const char* what() const throw();
 };
 

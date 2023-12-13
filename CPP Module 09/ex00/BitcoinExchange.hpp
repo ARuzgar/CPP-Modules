@@ -9,8 +9,12 @@
 # include <sstream>
 # include <iomanip>
 # include <iterator>
-# include <map>
 # include <exception>
+# include <map>
+
+const int DATE_LENGTH = 10;
+const int FIRST_DASH_POSITION = 4;
+const int SECOND_DASH_POSITION = 7;
 
 class BitcoinExchange
 {
@@ -22,12 +26,20 @@ class BitcoinExchange
 								BitcoinExchange(BitcoinExchange const & src);
 								~BitcoinExchange();
 		BitcoinExchange 		&operator=(BitcoinExchange const & rhs);
-		void					setData(std::string date, std::string price);
-		std::string				dashDeletedDate(std::string date);
-		void 					displayPurchaseInfo(std::string date, std::string price);
-		bool 					dateFormatChecker(std::string date);
-		void					errorHandler(std::string date, std::string price);
-		void					compareData(std::string compareFile);
+
+		void					setData(std::string const &date, std::string const &price);
+		std::string				dashDeletedDate(std::string const &date) const;
+		void 					parseLine(const std::string& line, std::string& date, std::string& spendature);
+		void 					processData(const std::string& date, const std::string& spendature);
+		void					compareData(std::string const &compareFile);
+		void 					displayPurchaseInfo(std::string const &date, std::string const & price) const;
+		bool 					dateFormatChecker(std::string const &date) const;
+		void					errorHandler(std::string const &date, std::string const &price) const;
+		int 					convertDateToInt(std::string const &date) const;
+		float 					convertSpendatureToFloat(std::string const &spendature) const;
+		float 					getBitcoinPrice(int dateInt) const;
+		void 					updateBoughtBTC(float const &spendatureFloat, float const &btcPrice);
+		void 					resetBoughtBTC();
 
 		class					badInputException;
 		class					notAPositiveNumberException;

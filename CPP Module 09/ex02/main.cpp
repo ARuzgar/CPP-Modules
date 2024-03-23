@@ -27,7 +27,13 @@ int main(int ac, char **av)
 		std::cout << "Error" << std::endl;
 		return (1);
 	}
-	PmergeMe pm(ac - 1, av + 1);
+	try {
+		PmergeMe pm(ac - 1, av + 1);
+		pm.printContainerComparison();
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
 	
 	return (0);
 }

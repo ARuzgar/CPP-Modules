@@ -16,9 +16,6 @@ class PmergeMe {
 		double				timeVec;
 		double				timeLst;
 		int					size;
-		int					left;
-		int					right;
-		int					mid;
 
 	public:
 						PmergeMe(int ac, char **av);
@@ -29,14 +26,21 @@ class PmergeMe {
 		void			fillTheContainers();
 		void			containerTimeComparison(void);
 		void			printContainerComparison();
+
 		void			mergeVec();
+		void 			mergeVecHelper(int* temp, int left, int right);
 		void			insertVec();
 		void			mergeInsertSortVec(void);
-		void			insertLst();
+
 		void			mergeLst();
+		void			mergeLstHelper(std::list<int> &sublist);
+		void			insertLst();
 		void			mergeInsertSortLst(void);
+
 		void			checkDuplicates();
 		void			checkNonInts();
+
+		int				getSize() const;
 
 		class duplicateException;
 		class notIntException;
